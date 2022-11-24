@@ -9,7 +9,7 @@ const initialState = {
 export const productsFetch = createAsyncThunk(
   'products/productsFetch',
   async () => {
-    const response = await axios.get('http://localhost:3001/products');
+    const response = await axios.get('https://bored-gamers.up.railway.app/products');
     return response?.data;
   }
 );
