@@ -92,7 +92,7 @@
   }
 
   .nav-links:hover {
-    color: rgb(9, 87, 98);
+    color: purple;
     transition: all 0.3s ease;
   }
 

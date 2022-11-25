@@ -15,7 +15,7 @@ export default function App() {
       <GlobalStyle />
       <ToastContainer
         transition={Flip}
-        position="top-right"
+        position="bottom-right"
         autoClose={1500}
         hideProgressBar={true}
         newestOnTop={false}
