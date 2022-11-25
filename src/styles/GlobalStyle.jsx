@@ -23,19 +23,19 @@ body {
   font-family: arial;
   background-color: black;
   background-image: linear-gradient(
- 90deg,
- hsl(221deg 65% 51%) 0%,
-  hsl(208deg 100% 43%) 11%,
-  hsl(205deg 100% 43%) 22%,
-  hsl(202deg 100% 43%) 33%,
-  hsl(198deg 100% 42%) 44%,
-  hsl(193deg 100% 40%) 56%,
-  hsl(189deg 100% 38%) 67%,
-  hsl(184deg 100% 36%) 78%,
-  hsl(178deg 86% 38%) 89%,
-  hsl(170deg 45% 52%) 100%
-);}
-
+  90deg,
+  hsl(240deg 58% 13%) 0%,
+  hsl(246deg 58% 14%) 17%,
+  hsl(252deg 59% 14%) 43%,
+  hsl(259deg 62% 15%) 65%,
+  hsl(266deg 65% 15%) 80%,
+  hsl(272deg 68% 15%) 89%,
+  hsl(278deg 74% 16%) 95%,
+  hsl(284deg 80% 15%) 98%,
+  hsl(290deg 89% 15%) 100%,
+  hsl(295deg 100% 14%) 100%
+);
+}
 
 #root  {
   display: flex;

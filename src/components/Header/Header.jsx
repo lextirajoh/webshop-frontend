@@ -230,11 +230,9 @@ const Container = styled.header`
   width: 100%;
   height: 5rem;
   color: white;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.6);
   font-weight: bold;
   padding: 0 2rem;
-  border-bottom: 1px solid #171ca1;
-  box-shadow: 0 5px 10px rgba(164, 164, 164, 0.13);
   position: fixed;
   top: 0;
   z-index: 1;
