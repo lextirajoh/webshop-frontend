@@ -10,6 +10,7 @@ import {
   getTotals,
 } from '../utils/cartSlice';
 import leftarrow from '../assets/left-arrow.png';
+import Footer from '../components/Footer/Footer';
 
 export default function Cart() {
   const cart = useSelector((state) => state.cart);
@@ -37,89 +38,102 @@ export default function Cart() {
 
   return (
     <>
-      <Container>
-        <h2>Winkelwagen</h2>
-        {cart.cartItems.length === 0 ? (
-          <EmptyCart>
-            <p>Uw winkelwagen is momenteel leeg.</p>
-            <StartShopping>
-              <Link to="/">
-                <img src={leftarrow} alt="" />
-                <span>Verder winkelen</span>
-              </Link>
-            </StartShopping>
-          </EmptyCart>
-        ) : (
-          <div>
-            <Titles>
-              <ProductTitle>Product</ProductTitle>
-              <Price>Prijs</Price>
-              <Quantity>Hoeveelheid</Quantity>
-              <Total>Totaal</Total>
-            </Titles>
-            <CartItems>
-              {cart.cartItems &&
-                cart.cartItems.map((cartItem) => (
-                  <CartItem key={cartItem.id}>
-                    <CartProduct>
-                      <img src={cartItem.image} alt={cartItem.title} />
-                      <div>
-                      <Link to={`/product-detail/${cartItem.id}`}>
-                        <h3>{cartItem.title}</h3>
-                        </Link>
-                        <button onClick={() => handleRemoveFromCart(cartItem)}>
-                          Verwijder
+      <Main>
+        <Container>
+          <h2>Winkelwagen</h2>
+          {cart.cartItems.length === 0 ? (
+            <EmptyCart>
+              <p>Uw winkelwagen is momenteel leeg.</p>
+              <StartShopping>
+                <Link to="/">
+                  <img src={leftarrow} alt="" />
+                  <span>Verder winkelen</span>
+                </Link>
+              </StartShopping>
+            </EmptyCart>
+          ) : (
+            <div>
+              <Titles>
+                <ProductTitle>Product</ProductTitle>
+                <Price>Prijs</Price>
+                <Quantity>Hoeveelheid</Quantity>
+                <Total>Totaal</Total>
+              </Titles>
+              <CartItems>
+                {cart.cartItems &&
+                  cart.cartItems.map((cartItem) => (
+                    <CartItem key={cartItem.id}>
+                      <CartProduct>
+                        <img src={cartItem.image} alt={cartItem.title} />
+                        <div>
+                          <Link to={`/product-detail/${cartItem.id}`}>
+                            <h3>{cartItem.title}</h3>
+                          </Link>
+                          <button
+                            onClick={() => handleRemoveFromCart(cartItem)}
+                          >
+                            Verwijder
+                          </button>
+                        </div>
+                      </CartProduct>
+                      <CartProductPrice>€{cartItem.price}</CartProductPrice>
+                      <CartProductQuantity>
+                        <button onClick={() => handleDecreaseCart(cartItem)}>
+                          -
                         </button>
-                      </div>
-                    </CartProduct>
-                    <CartProductPrice>€{cartItem.price}</CartProductPrice>
-                    <CartProductQuantity>
-                      <button onClick={() => handleDecreaseCart(cartItem)}>
-                        -
-                      </button>
-                      <Count>{cartItem.cartQuantity}</Count>
-                      <button onClick={() => handleIncreaseCart(cartItem)}>
-                        +
-                      </button>
-                    </CartProductQuantity>
-                    <CartProductTotalPrice>
-                      €{(cartItem.price * cartItem.cartQuantity).toFixed(2)}
-                    </CartProductTotalPrice>
-                  </CartItem>
-                ))}
-            </CartItems>
-            <CartSummary>
-              <ClearCartButton onClick={() => handleClearCart()}>
-                Verwijder alles
-              </ClearCartButton>
-              <CartCheckout>
-                <Subtotal>
-                  <span>Subtotaal</span>
-                  <Amount>€{(cart.cartTotalAmount).toFixed(2)}</Amount>
-                </Subtotal>
-                <p>Verzendkosten berekend bij volgende stap</p>
-                <button>Kassa</button>
-                <ContinueShopping>
-                  <Link to="/">
-                    <img src={leftarrow} alt="" />
-                    <span>Verder winkelen</span>
-                  </Link>
-                </ContinueShopping>
-              </CartCheckout>
-            </CartSummary>
-          </div>
-        )}
-      </Container>
+                        <Count>{cartItem.cartQuantity}</Count>
+                        <button onClick={() => handleIncreaseCart(cartItem)}>
+                          +
+                        </button>
+                      </CartProductQuantity>
+                      <CartProductTotalPrice>
+                        €{(cartItem.price * cartItem.cartQuantity).toFixed(2)}
+                      </CartProductTotalPrice>
+                    </CartItem>
+                  ))}
+              </CartItems>
+              <CartSummary>
+                <ClearCartButton onClick={() => handleClearCart()}>
+                  Verwijder alles
+                </ClearCartButton>
+                <CartCheckout>
+                  <Subtotal>
+                    <span>Subtotaal</span>
+                    <Amount>€{cart.cartTotalAmount.toFixed(2)}</Amount>
+                  </Subtotal>
+                  <p>Verzendkosten berekend bij volgende stap</p>
+                  <button>Kassa</button>
+                  <ContinueShopping>
+                    <Link to="/">
+                      <img src={leftarrow} alt="" />
+                      <span>Verder winkelen</span>
+                    </Link>
+                  </ContinueShopping>
+                </CartCheckout>
+              </CartSummary>
+            </div>
+          )}
+        </Container>
+        <Footer />
+      </Main>
     </>
   );
 }
 
+const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+`;
+
 const Container = styled.section`
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 80%;
-margin-top: 7rem;
-  padding: 2rem 4rem;
+  margin: 7rem 4rem 0 4rem;
 
   h2 {
     font-weight: 400;
@@ -188,8 +202,8 @@ const CartProduct = styled.div`
     margin-right: 1rem;
 
     @media (max-width: 62rem) {
-    display: none;
-  }
+      display: none;
+    }
   }
 
   button {
@@ -258,10 +272,10 @@ const ClearCartButton = styled.button`
   cursor: pointer;
 
   :hover {
-      color: white;
-      background-color: #fa5b5b;
-      border: none;
-      transition: 200ms;
+    color: white;
+    background-color: #fa5b5b;
+    border: none;
+    transition: 200ms;
   }
 `;
 
@@ -290,7 +304,7 @@ const CartCheckout = styled.div`
     :hover {
       color: black;
       background-color: #f9e65a;
-      transition: 400ms;;
+      transition: 400ms;
     }
   }
 `;
@@ -307,7 +321,7 @@ const Amount = styled.span`
 
 const ContinueShopping = styled.div`
   margin-top: 1rem;
-  
+
   img {
     width: 1rem;
     margin-right: 1rem;
@@ -316,12 +330,12 @@ const ContinueShopping = styled.div`
 
 const StartShopping = styled.div`
   margin-top: 1rem;
-  
-  span{
+
+  span {
     color: #e2e2e2;
 
     :hover {
-      color:white
+      color: white;
     }
   }
 

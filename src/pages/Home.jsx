@@ -1,12 +1,8 @@
 import { useGetAllProductsQuery } from '../utils/productsApi';
-import slide1 from '../assets/slide1.webp';
-import slide2 from '../assets/slide2.jpg';
-import slide3 from '../assets/slide3.png';
-import home1 from '../assets/home1.jpg';
 import Card from '../components/Card';
 import styled from 'styled-components';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import marvel from '../assets/marvel.webp';
+import Footer from '../components/Footer/Footer';
 
 export default function Home() {
   const { data, error, isLoading } = useGetAllProductsQuery();
@@ -14,43 +10,13 @@ export default function Home() {
   return (
     <>
       <Main>
-        <BlackWrap>
-          <Hero>
-            <Carousel
-              interval={7000}
-              transitionTime={3000}
-              showThumbs={false}
-              showArrows={false}
-              autoPlay={true}
-              infiniteLoop={true}
-              emulateTouch={true}
-              showStatus={false}
-            >
-              <Banner>
-                <img src={slide1} />
-                <div>
-                  <p>GAME-NIGHT</p>
-                  <h3>ELKE VRIJDAG OM 20:00</h3>
-                </div>
-              </Banner>
-              <Banner>
-                <img src={slide3} />
-                <div>
-                  <p>UITVERKOOP</p>
-                  <h3>SLA JE SLAG</h3>
-                </div>
-              </Banner>
-              <Banner>
-                <img src={slide2} />
-                <div>
-                  <p>NIEUW BINNEN</p>
-                  <h3>DE HOTSTE GAMES</h3>
-                </div>
-              </Banner>
-            </Carousel>
-          </Hero>
-        </BlackWrap>
-        <hr />
+        <Hero>
+          <HeroTitle>
+            <h1>Marvel Champions: The Card Game</h1>
+            <h2><a href="/product-detail/9">Opnieuw in voorraad</a> </h2>
+          </HeroTitle>
+          <HeroImg src={marvel} alt="Marvel superheroes" />
+        </Hero>
 
         <MiddleSection>
           <MiddleTitle>NU POPULAIR</MiddleTitle>
@@ -93,10 +59,8 @@ export default function Home() {
             )}
           </ProductContainer>
         </MiddleSection>
-
-        <hr />
+        <Footer></Footer>
       </Main>
-       
     </>
   );
 }
@@ -104,56 +68,44 @@ export default function Home() {
 const Main = styled.main`
   display: flex;
   flex-direction: column;
-  width: 80%;
-  margin-top: 7rem;
+  width: 100%;
+  margin-top: 5rem;
   justify-content: center;
+  align-items: center;
 
   hr {
     width: 100%;
     margin: 3rem 0;
   }
-
-  @media (max-width: 62rem) {
-    width: 95%;
-  }
 `;
 
-const BlackWrap = styled.div`
-  padding: 1.5rem 2rem;
-  border-radius: 10px;
-  overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.15);
+const Hero = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem 5rem;
+  background-color: rgba(255, 255, 255, 0.1);
 `;
 
-const Hero = styled.div``;
+const HeroTitle = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: Futura;
+  font-weight: 700;
 
-const Banner = styled.div`
-  position: relative;
-  display: inline-block;
-
-  cursor: pointer;
-
-  img {
-    display: block;
-    object-fit: cover;
+  h1 {
+    font-size: 5rem;
+    color: gold;
   }
 
-  div {
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    width: 100%;
-    padding: 1rem;
-    transform: translate(-50%, -50%);
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  h2 {
     font-size: 4rem;
-    font-style: italic;
-    font-weight: bold;
-    color: white;
-    text-shadow: 5px 5px #e918d8;
-    font-weight: bold;
-    border-radius: 10px;
   }
+`;
+
+const HeroImg = styled.img`
+  width: 50%;
 `;
 
 const MiddleSection = styled.section`
@@ -161,6 +113,11 @@ const MiddleSection = styled.section`
   flex-direction: column;
   justify-content: center;
   align-content: center;
+  width: 90%;
+
+  :last-of-type {
+    margin-bottom: 7rem;
+  }
 `;
 
 const MiddleTitle = styled.p`
@@ -181,6 +138,3 @@ const ProductContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
 `;
-
-
-

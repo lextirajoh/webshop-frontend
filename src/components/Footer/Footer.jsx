@@ -48,7 +48,7 @@ const Wrapper = styled.footer`
   display: flex;
   justify-content: center;
   margin-top: auto;
-  padding: 1rem 0;
+  padding: 2rem 0;
   width: 100%;
   color: white;
   background-color: rgba(0, 0, 0, 0.4);
@@ -56,7 +56,7 @@ const Wrapper = styled.footer`
   -o-backdrop-filter: blur(4px);
   -moz-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
-
+  border-top: 3px solid gold;
 `;
 
 const Container = styled.div`
@@ -69,6 +69,7 @@ const Container = styled.div`
 
 const Name = styled.span`
   font-family: Brush Script MT;
+  color: gold;
   font-size: 1.8rem;
 `;
 

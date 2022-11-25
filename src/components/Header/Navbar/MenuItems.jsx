@@ -35,7 +35,7 @@ export default function MenuItems({ items, depthLevel }) {
   }
 
   let activeStyle = {
-    borderBottom: "3px solid white",
+    borderBottom: "3px solid black",
   };
 
   return (
@@ -113,7 +113,7 @@ const StyledLi = styled.li`
   }
 
   a:hover{
-    border-bottom: 3px solid white;
+    border-bottom: 3px solid black;
   }
 
   button {
@@ -121,7 +121,6 @@ const StyledLi = styled.li`
     align-items: center;
     border: none;
     background-color: transparent;
-    color: white;
     cursor: pointer;
     width: 100%;
 
@@ -135,7 +134,6 @@ const Arrow = styled.span`
   ::after {
     content: '';
     display: inline-block;
-    color: white;
     margin-left: 0.28rem;
     vertical-align: 0.09em;
     border-top: 0.42em solid;

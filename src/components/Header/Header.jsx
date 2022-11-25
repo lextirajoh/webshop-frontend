@@ -20,9 +20,9 @@ export default function Header() {
   const [displayName, setDisplayName] = useState('');
   const dispatch = useDispatch();
 
-  let activeStyle = {
-    borderBottom: '3px solid white',
-  };
+  // let activeStyle = {
+  //   borderBottom: '3px solid black',
+  // };
 
   // monitor currently active user
   useEffect(() => {
@@ -79,18 +79,12 @@ export default function Header() {
         <RightSection>
           <div>
             <ShowOnLogout>
-              <NavLink
-                to="/account/login"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                log in
-              </NavLink>
+              <NavLink to="/account/login">log in</NavLink>
             </ShowOnLogout>
           </div>
           <Name>
             <ShowOnLogin>
-              <NavLink to="/account" style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
+              <NavLink to="/account">
                 {' '}
                 <p>Welkom</p>
                 <p> {displayName}</p>
@@ -99,14 +93,14 @@ export default function Header() {
           </Name>
           <div>
             <ShowOnLogin>
-              <NavLink to="/account" style={({ isActive }) => (isActive ? activeStyle : undefined)}>
+              <NavLink to="/account">
                 {' '}
                 <img src={accounticon} alt="" />
               </NavLink>
             </ShowOnLogin>
           </div>
           <Wishlist>
-            <NavLink to="/wishlist" style={({ isActive }) => (isActive ? activeStyle : undefined)}>
+            <NavLink to="/wishlist">
               <img src={hearticon} alt="" />
               <p>{wishlistTotalQuantity}</p>
             </NavLink>
@@ -114,7 +108,7 @@ export default function Header() {
 
           <Cart>
             <div>
-              <NavLink to="/cart" style={({ isActive }) => (isActive ? activeStyle : undefined)}>
+              <NavLink to="/cart">
                 <img src={carticon} alt="" />
                 <p>{cartTotalQuantity}</p>
               </NavLink>
@@ -229,8 +223,20 @@ const Container = styled.header`
   align-items: center;
   width: 100%;
   height: 5rem;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.6);
+  color: black;
+  background-image: linear-gradient(
+    90deg,
+    hsl(54deg 83% 45%) 0%,
+    hsl(52deg 87% 45%) 17%,
+    hsl(50deg 90% 45%) 43%,
+    hsl(49deg 92% 45%) 65%,
+    hsl(47deg 93% 45%) 80%,
+    hsl(45deg 93% 46%) 89%,
+    hsl(44deg 92% 47%) 95%,
+    hsl(42deg 90% 48%) 98%,
+    hsl(40deg 88% 49%) 100%,
+    hsl(38deg 87% 51%) 100%
+  );
   font-weight: bold;
   padding: 0 2rem;
   position: fixed;
@@ -240,10 +246,10 @@ const Container = styled.header`
   -o-backdrop-filter: blur(4px);
   -moz-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
+  z-index: 2;
 
   a {
     text-decoration: none;
-    color: white;
   }
 
   img {
@@ -276,7 +282,7 @@ const RightSection = styled.div`
     margin: 0 0.7rem;
   }
 
-    @media (max-width: 62rem) {
+  @media (max-width: 62rem) {
     display: none;
   }
 `;

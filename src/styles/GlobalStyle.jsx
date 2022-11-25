@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
 
 html {
   position: relative;
-  min-height: 100%;
+  /* min-height: 100%; */
   scroll-behavior: smooth;
 }
 
@@ -43,14 +43,6 @@ body {
   align-items: center;
 }
 
-main {
-  margin-top: 7rem;
-  margin-bottom: 15rem;
-
-  @media (max-width: 62rem) {
-    margin-bottom: 20rem;
-  }
-}
 img, picture, video, canvas, svg {
   max-width: 100%;
 }
