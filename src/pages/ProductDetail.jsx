@@ -170,7 +170,6 @@ const Main = styled.main`
   flex-direction: column;
   width: 80%;
   margin-top: 7rem;
-  padding-bottom: 7rem;
 
   h1 {
     margin: 1rem 0;

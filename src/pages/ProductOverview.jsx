@@ -88,7 +88,6 @@ const Main = styled.main`
 
   @media (max-width: 62rem) {
     margin-top: 6rem;
-    padding-bottom: 12rem;
   }
 `;
 

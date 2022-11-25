@@ -26,7 +26,7 @@ export const dropdownContent = [
       },
     ],
   },
-  { title: 'Sale', url: '/Sale' },
+  // { title: 'Sale', url: '/Sale' },
 ];
 
 

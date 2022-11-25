@@ -45,19 +45,18 @@ export default function Footer() {
 }
 
 const Wrapper = styled.footer`
-  position: absolute;
   display: flex;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 1rem 0;
   justify-content: center;
+  margin-top: auto;
+  padding: 1rem 0;
+  width: 100%;
   color: white;
   background-color: rgba(0, 0, 0, 0.4);
   -webkit-backdrop-filter: blur(4px);
   -o-backdrop-filter: blur(4px);
   -moz-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
+
 `;
 
 const Container = styled.div`
