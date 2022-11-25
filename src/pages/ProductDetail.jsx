@@ -73,7 +73,7 @@ export default function ProductDetail() {
               <hr />
               <div className="embed-container">
                 <iframe
-                  src={data[product].youtube}
+                  src={data[product].youtube + "?autoplay=1&controls=0&modestbranding=1"}
                   title="YouTube video player"
                   frameBorder="0"
                   allowFullScreen
