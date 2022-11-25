@@ -102,19 +102,21 @@ export default function Header() {
           <Wishlist>
             <NavLink to="/wishlist">
               <img src={hearticon} alt="" />
-              <p>{wishlistTotalQuantity}</p>
+              {wishlistTotalQuantity > 0 && (
+                <Badge>{wishlistTotalQuantity}</Badge>
+              )}
             </NavLink>
           </Wishlist>
 
           <Cart>
-            <div>
-              <NavLink to="/cart">
-                <img src={carticon} alt="" />
-                <p>{cartTotalQuantity}</p>
-              </NavLink>
-            </div>
+            <NavLink to="/cart">
+              <img src={carticon} alt="" />
+              {cartTotalQuantity > 0 &&
+              <Badge>{cartTotalQuantity}</Badge>}
+            </NavLink>
           </Cart>
         </RightSection>
+
         <MobileMenu>
           <IconContext.Provider value={{ color: 'fff' }}>
             <div className="nav">
@@ -222,7 +224,7 @@ const Container = styled.header`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 5rem;
+  height: 4rem;
   color: black;
   background-image: linear-gradient(
     90deg,
@@ -308,6 +310,8 @@ const Name = styled.div`
 `;
 
 const Wishlist = styled.span`
+  position: relative;
+
   a {
     position: relative;
 
@@ -320,6 +324,8 @@ const Wishlist = styled.span`
   }
 `;
 const Cart = styled.span`
+  position: relative;
+
   a {
     position: relative;
 
@@ -330,6 +336,20 @@ const Cart = styled.span`
       font-size: 1.2rem;
     }
   }
+`;
+
+const Badge = styled.div`
+  position: absolute;
+  top: -8px;
+  right: -15px;
+  display: grid;
+  place-content: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  font-size: 0.8rem;
+  color: gold;
+  background-color: black;
+  border-radius: 50%;
 `;
 
 const MobileMenu = styled.div`

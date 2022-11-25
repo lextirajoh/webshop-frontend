@@ -1,16 +1,21 @@
-import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
-import { addToCart } from '../utils/cartSlice';
+import { addToCart, getTotals } from '../utils/cartSlice';
 import styled from 'styled-components';
 
-
 export default function Card({ product }) {
+  const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    dispatch(getTotals());
+  }, [cart, dispatch]);
+
   function handleAddToCart(product) {
     dispatch(addToCart(product));
-    navigate('/cart');
+    // navigate('/cart');
   }
 
   return (
@@ -21,7 +26,7 @@ export default function Card({ product }) {
           <h4>{product.title}</h4>
           <h5>€{product.price}</h5>
         </CardLink>
-        
+
         <button onClick={() => handleAddToCart(product)}>Bestel</button>
       </Container>
     </>
@@ -36,24 +41,23 @@ const Container = styled.div`
   width: 15rem;
   margin: 0 1rem;
   padding: 1rem;
-    color: white;
+  color: white;
   border-radius: 10px;
 
   @media (max-width: 62rem) {
     margin: 1rem 0;
   }
 
-
   :hover {
-  background-color: rgba(0,0,0, 0.15);
-  scale: 1.02;
-  transition: 500ms;
+    background-color: rgba(0, 0, 0, 0.15);
+    scale: 1.02;
+    transition: 500ms;
   }
 
   button {
     width: 6rem;
     height: 1.5rem;
-    margin-top: .5rem;
+    margin-top: 0.5rem;
     font-weight: 400;
     letter-spacing: 1.15px;
     color: black;
@@ -63,30 +67,29 @@ const Container = styled.div`
     border-radius: 5px;
     cursor: pointer;
 
-    :hover{
+    :hover {
       background-color: #f8e23c;
     }
   }
-
 `;
 
 const CardLink = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color:white;
+  color: white;
 
- :hover{
-  color: white
- }
+  :hover {
+    color: white;
+  }
 
   img {
     width: 10rem;
-    margin-bottom: .7rem;
+    margin-bottom: 0.7rem;
     border-radius: 10px;
 
     @media (max-width: 62rem) {
-    width: 100%
+      width: 100%;
+    }
   }
-  }
-`
+`;

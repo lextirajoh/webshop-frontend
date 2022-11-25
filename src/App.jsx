@@ -15,8 +15,8 @@ export default function App() {
       <GlobalStyle />
       <ToastContainer
         transition={Flip}
-        position="bottom-right"
-        autoClose={4000}
+        position="top-right"
+        autoClose={1500}
         hideProgressBar={true}
         newestOnTop={false}
         closeOnClick
@@ -24,6 +24,7 @@ export default function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
+        theme="dark"
       />
       <Header />
       {/* <Search /> */}

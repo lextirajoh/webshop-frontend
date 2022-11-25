@@ -23,11 +23,10 @@ const cartSlice = createSlice({
       );
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity += 1;
-        toast.success(`${action.payload.title} hoeveelheid vermeerderd.`);
       } else if (itemIndex === -1) {
         const tempProduct = { ...action.payload, cartQuantity: 1 };
         state.cartItems.push(tempProduct);
-        toast.success(`${action.payload.title} toegevoegd aan winkelwagen.`);
+        toast.success(`${action.payload.title} toegevoegd aan je mandje.`);
       }
       // after adding to state, also add to localstorage
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
@@ -39,14 +38,13 @@ const cartSlice = createSlice({
       );
       if (state.cartItems[itemIndex].cartQuantity >= 2) {
         state.cartItems[itemIndex].cartQuantity -= 1;
-        toast.info(`${action.payload.title} hoeveellheid verminderd.`);
         
       } else {
         const filteredCartItems = state.cartItems.filter(
           (cartItem) => cartItem.id !== action.payload.id
         );
         state.cartItems = filteredCartItems;
-        toast.error(`${action.payload.title} verwijderd uit winkelwagen.`);
+        toast.error(`${action.payload.title} verwijderd uit je mandje.`);
       }
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
     },
@@ -58,14 +56,14 @@ const cartSlice = createSlice({
       );
       state.cartItems = filteredCartItems;
 
-      toast.error(`${action.payload.title} verwijderd uit winkelwagen.`);
+      toast.error(`${action.payload.title} verwijderd uit je mandje.`);
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
     },
 
     // Clear all items
     clearCart(state, action) {
       state.cartItems = [];
-      toast.error(`Winkelwagen leeggemaakt.`);
+      toast.error(`Mandje leeggemaakt.`);
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
     },
 

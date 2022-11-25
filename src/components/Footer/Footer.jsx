@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import fb from '../../assets/fb.png';
-import ig from '../../assets/insta.png';
-import twitter from '../../assets/twitter.png';
+import mastodon from '../../assets/mastodon.png';
+import pixelfed from '../../assets/pixelfed.png';
+import peertube from '../../assets/peertube.png';
 
 export default function Footer() {
   return (
@@ -23,7 +23,7 @@ export default function Footer() {
             <p>
               <strong>Openingstijden winkel:</strong>
             </p>
-            Maandag: Gesloten <br />
+            Maandag: gesloten <br />
             Di-Vr: 10:00 - 20:00 <br />
             Zaterdag: 10:00 -18:00 <br />
             Zondag: 10:00 - 17:00
@@ -33,9 +33,15 @@ export default function Footer() {
             <p>Abonneer op onze nieuwsbrief:</p>
             <input type="text" placeholder="Voer uw emailadres in.." />
             <Social>
-              <img src={fb} alt="" />
-              <img src={ig} alt="" />
-              <img src={twitter} alt="" />
+              <a href="https://joinmastodon.org">
+                <img src={mastodon} alt="Mastodon logo" />
+              </a>
+              <a href="https://pixelfed.org">
+                <img src={pixelfed} alt="Pixelfed logo" />
+              </a>
+              <a href="https://joinpeertube.org/">
+                <img src={peertube} alt="PeerTube logo" />
+              </a>
             </Social>
           </Newsletter>
         </Container>
@@ -96,8 +102,8 @@ const Social = styled.div`
   }
 
   img {
-    width: 1.5rem;
-    margin: .5rem;
+    height: 1.5rem;
+    margin: 0.5rem;
     cursor: pointer;
   }
 `;

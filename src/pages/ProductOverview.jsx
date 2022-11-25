@@ -1,6 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import { useGetAllProductsQuery } from '../utils/productsApi';
 import Card from '../components/Card';
+import Footer from '../components/Footer/Footer';
+
 import styled from 'styled-components';
 
 export default function Products() {
@@ -12,79 +14,99 @@ export default function Products() {
 
   return (
     <>
-      <Main>
-        <BlackWrap>
-          <Heading>
-            <h2>Alle spellen</h2>
-            <hr />
-          </Heading>
-          <Sidebar>
-            <hr />
-            <h5>Filters:</h5>
-            <ul>
-            <li>
-              <NavLink
-                to="/products"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                Alle spellen
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/products/Strategie"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                Strategie
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/products/Familie"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                Familie
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/products/Abstract"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                Abstract
-              </NavLink>
-            </li>
-            </ul>
-            <hr />
-          </Sidebar>
-          <ProductGrid>
-            <ProductContainer>
-              {isLoading ? (
-                <p>Loading...</p>
-              ) : error ? (
-                <p>An error occured...</p>
-              ) : (
-                <>
-                  {data?.map((product) => (
-                    <div key={product.id}>
-                      <Card product={product} />
-                    </div>
-                  ))}
-                </>
-              )}
+      <Container>
+        <Main>
+          <BlackWrap>
+            <Heading>
+              <h2>Alle spellen</h2>
+              <hr />
+            </Heading>
+            <Sidebar>
+              <hr />
+              <h5>Filters:</h5>
+              <ul>
+                <li>
+                  <NavLink
+                    to="/products"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : undefined
+                    }
+                  >
+                    Alle spellen
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/products/Strategie"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : undefined
+                    }
+                  >
+                    Strategie
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/products/Familie"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : undefined
+                    }
+                  >
+                    Familie
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/products/Abstract"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : undefined
+                    }
+                  >
+                    Abstract
+                  </NavLink>
+                </li>
+              </ul>
+              <hr />
+            </Sidebar>
+            <ProductGrid>
+              <ProductContainer>
+                {isLoading ? (
+                  <p>Loading...</p>
+                ) : error ? (
+                  <p>An error occured...</p>
+                ) : (
+                  <>
+                    {data?.map((product) => (
+                      <div key={product.id}>
+                        <Card product={product} />
+                      </div>
+                    ))}
+                  </>
+                )}
 
-              {/* <Outlet /> */}
-            </ProductContainer>
-          </ProductGrid>
-        </BlackWrap>
-      </Main>
+                {/* <Outlet /> */}
+              </ProductContainer>
+            </ProductGrid>
+          </BlackWrap>
+        </Main>
+        <Footer />
+      </Container>
     </>
   );
 }
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(255, 255, 255, 0.1);
+`;
+
 const Main = styled.main`
-  width: 80%;
-  margin-top: 7rem;
+  width: 90%;
+  margin: 5rem 0;
 
   @media (max-width: 62rem) {
     margin-top: 6rem;
@@ -98,7 +120,6 @@ const BlackWrap = styled.div`
   column-gap: 2rem;
   row-gap: 1rem;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.1);
   padding: 1.5rem 2rem;
   border-radius: 10px;
   overflow: hidden;
@@ -134,13 +155,13 @@ const Sidebar = styled.nav`
   border-radius: 10px;
 
   li {
-    padding: .5rem 0;
+    padding: 0.5rem 0;
   }
 
-  a{
+  a {
     color: white;
 
-    :hover{
+    :hover {
       color: #cfcfcf;
     }
   }

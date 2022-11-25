@@ -20,10 +20,10 @@ const wishlistSlice = createSlice({
       if (itemIndex === -1) {
         const tempProduct = { ...action.payload, wishlistQuantity: 1 };
         state.wishlistItems.push(tempProduct);
-        toast.success(`${action.payload.title} toegevoegd aan de wenslijst`)
+        toast.success(`${action.payload.title} toegevoegd aan wenslijst`)
       
       } else if (itemIndex >= 0) {
-        toast.info(`${action.payload.title} staat al op uw wenslijst`);
+        toast.info(`${action.payload.title} staat al op je wenslijst`);
       }
       // after adding to state, also add to localstorage
       localStorage.setItem(

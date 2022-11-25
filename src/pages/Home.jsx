@@ -69,7 +69,7 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 5rem;
+  margin-top: 4rem;
   justify-content: center;
   align-items: center;
 
@@ -101,6 +101,10 @@ const HeroTitle = styled.div`
 
   h2 {
     font-size: 4rem;
+
+    a {
+      color: white;
+    }
   }
 `;
 

@@ -1,20 +1,28 @@
+import { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useGetAllProductsQuery } from '../utils/productsApi';
-import { addToCart } from '../utils/cartSlice';
+import { addToCart, getTotals } from '../utils/cartSlice';
 import { addToWishlist } from '../utils/wishlistSlice';
+import Footer from '../components/Footer/Footer';
 import styled from 'styled-components';
 
 export default function ProductDetail() {
+  const cart = useSelector((state) => state.cart);
+  const wishlist = useSelector((state) => state.wishlist);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { data } = useGetAllProductsQuery();
   const params = useParams();
   const product = params.id;
 
+  useEffect(() => {
+    dispatch(getTotals());
+  }, [cart, dispatch]);
+
   function handleAddToCart(product) {
     dispatch(addToCart(product));
-    navigate('/cart');
+    // navigate('/cart');
   }
   function handleAddToWishlist(product) {
     dispatch(addToWishlist(product));
@@ -23,95 +31,23 @@ export default function ProductDetail() {
 
   return (
     <>
-      {typeof data !== 'undefined' ? (
-        <Main>
-          <BlackWrap>
-            <Path>
-              <Link to="/products/All"> Alle spellen</Link> &gt;{' '}
-              <Link to={`/products/${data[product].category}`}>
-                {data[product].category}
-              </Link>{' '}
-              &gt; {data[product].title}
-            </Path>
+      <Container>
+        {typeof data !== 'undefined' ? (
+          <Main>
+            <BlackWrap>
+              <Path>
+                <Link to="/products/All"> Alle spellen</Link> &gt;{' '}
+                <Link to={`/products/${data[product].category}`}>
+                  {data[product].category}
+                </Link>{' '}
+                &gt; {data[product].title}
+              </Path>
 
-            <LeftColumn>
-              <img src={data[product].image} alt={product.title} />
-              <h3>€ {data[product].price}</h3>
-              <hr />
-              
-              <p>
-                <strong>Taal:</strong> {data[product].language}{' '}
-              </p>
-              <p>
-                <strong>Aantal spelers:</strong> {data[product].players}{' '}
-              </p>
-              <p>
-                <strong>Speelduur:</strong> {data[product].playtime} min.
-              </p>
-              <p>
-                <strong>Leeftijd:</strong> Vanaf {data[product].age} jaar
-              </p>
-              <p>
-                <strong>Uitgever:</strong> {data[product].publisher}{' '}
-              </p>
-              <p>
-                <strong>Type bordspel:</strong> {data[product].type}{' '}
-              </p>
-              <hr />
-              <WishlistButton
-                onClick={() => handleAddToWishlist(data[product])}
-              >
-                Zet op wenslijst
-              </WishlistButton>
-              <BuyButton onClick={() => handleAddToCart(data[product])}>
-                In winkelwagen
-              </BuyButton>
-            </LeftColumn>
-
-            <RightColumn>
-              <h1>{data[product].title}</h1>
-              <hr />
-              <div className="embed-container">
-                <iframe
-                  src={data[product].youtube + "?autoplay=1&controls=0&modestbranding=1"}
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allowFullScreen
-                ></iframe>
-              </div>
-
-              <Desc>
-                <h5>Beschrijving</h5>
+              <LeftColumn>
+                <img src={data[product].image} alt={product.title} />
+                <h3>€ {data[product].price}</h3>
                 <hr />
-                {data[product].desc.split('\n').map(sentence => {
-                  return <p>{sentence}</p>
-                })}
-              </Desc>
-            </RightColumn>
-          </BlackWrap>
-        </Main>
-      ) : (
-        <div>No product found.</div>
-      )}
 
-      {typeof data !== 'undefined' ? (
-        <>
-          <MainMob>
-            <Path>
-              <Link to="/products/All"> Alle spellen</Link> &gt;{' '}
-              <Link to={`/products/${data[product].category}`}>
-                {data[product].category}
-              </Link>{' '}
-              &gt; {data[product].title}
-            </Path>
-<hr />
-            <h1>{data[product].title}</h1>
-           
-            <img src={data[product].image} alt={product.title} />
-            <hr />
-            <h3>Productinformatie</h3>
-            <InfoMob>
-              <div>
                 <p>
                   <strong>Taal:</strong> {data[product].language}{' '}
                 </p>
@@ -119,57 +55,147 @@ export default function ProductDetail() {
                   <strong>Aantal spelers:</strong> {data[product].players}{' '}
                 </p>
                 <p>
-                <strong>Uitgever:</strong> {data[product].publisher}{' '}
-              </p>
-                <WishlistButton
-                onClick={() => handleAddToWishlist(data[product])}
-              >
-                Zet op wenslijst
-              </WishlistButton>
-              </div>
-              <div>
-                <p>
                   <strong>Speelduur:</strong> {data[product].playtime} min.
                 </p>
                 <p>
                   <strong>Leeftijd:</strong> Vanaf {data[product].age} jaar
                 </p>
-                <p><strong>Prijs: €{data[product].price}</strong></p>
+                <p>
+                  <strong>Uitgever:</strong> {data[product].publisher}{' '}
+                </p>
+                <p>
+                  <strong>Type bordspel:</strong> {data[product].type}{' '}
+                </p>
+                <hr />
+                <WishlistButton
+                  onClick={() => handleAddToWishlist(data[product])}
+                >
+                  Zet op wenslijst
+                </WishlistButton>
                 <BuyButton onClick={() => handleAddToCart(data[product])}>
-                In winkelwagen
-              </BuyButton>
-              </div>
-              
-            </InfoMob>
-            <hr />
-            <div className="embed-container">
-              <iframe
-                src={data[product].youtube}
-                title="YouTube video player"
-                frameBorder="0"
-                allowFullScreen
-              ></iframe>
-            </div>
-            <hr />
-            <Desc>
-              <h5>Beschrijving</h5>
+                  In winkelwagen
+                </BuyButton>
+              </LeftColumn>
 
-              <p>{data[product].desc} </p>
-            </Desc>
-          </MainMob>
-        </>
-      ) : (
-        <div>No product found.</div>
-      )}
+              <RightColumn>
+                <h1>{data[product].title}</h1>
+                <hr />
+                <div className="embed-container">
+                  <iframe
+                    src={
+                      data[product].youtube +
+                      '?autoplay=1&controls=0&modestbranding=1'
+                    }
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+
+                <Desc>
+                  <h5>Beschrijving</h5>
+                  <hr />
+                  {data[product].desc.split('\n').map((sentence) => {
+                    return <p>{sentence}</p>;
+                  })}
+                </Desc>
+              </RightColumn>
+            </BlackWrap>
+          </Main>
+        ) : (
+          <div>No product found.</div>
+        )}
+
+        {typeof data !== 'undefined' ? (
+          <>
+            <MainMob>
+              <Path>
+                <Link to="/products/All"> Alle spellen</Link> &gt;{' '}
+                <Link to={`/products/${data[product].category}`}>
+                  {data[product].category}
+                </Link>{' '}
+                &gt; {data[product].title}
+              </Path>
+              <hr />
+              <h1>{data[product].title}</h1>
+
+              <img src={data[product].image} alt={product.title} />
+              <hr />
+              <h3>Productinformatie</h3>
+              <InfoMob>
+                <div>
+                  <p>
+                    <strong>Taal:</strong> {data[product].language}{' '}
+                  </p>
+                  <p>
+                    <strong>Aantal spelers:</strong> {data[product].players}{' '}
+                  </p>
+                  <p>
+                    <strong>Uitgever:</strong> {data[product].publisher}{' '}
+                  </p>
+                  <WishlistButton
+                    onClick={() => handleAddToWishlist(data[product])}
+                  >
+                    Zet op wenslijst
+                  </WishlistButton>
+                </div>
+                <div>
+                  <p>
+                    <strong>Speelduur:</strong> {data[product].playtime} min.
+                  </p>
+                  <p>
+                    <strong>Leeftijd:</strong> Vanaf {data[product].age} jaar
+                  </p>
+                  <p>
+                    <strong>Prijs: €{data[product].price}</strong>
+                  </p>
+                  <BuyButton onClick={() => handleAddToCart(data[product])}>
+                    In winkelwagen
+                  </BuyButton>
+                </div>
+              </InfoMob>
+              <hr />
+              <div className="embed-container">
+                <iframe
+                  src={data[product].youtube}
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <hr />
+              <Desc>
+                <h5>Beschrijving</h5>
+
+                <p>{data[product].desc} </p>
+              </Desc>
+              <Footer />
+            </MainMob>
+          </>
+        ) : (
+          <>
+            <div>No product found.</div>
+          </>
+        )}
+        <Footer />
+      </Container>
     </>
   );
 }
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(255, 255, 255, 0.1);
+`;
 const Main = styled.main`
   display: flex;
   flex-direction: column;
-  width: 80%;
-  margin-top: 7rem;
+  width: 90%;
+  margin: 4rem 0;
 
   h1 {
     margin: 1rem 0;
@@ -188,8 +214,8 @@ const BlackWrap = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr auto;
-  column-gap: 2rem;
-  background-color: rgba(0, 0, 0, 0.1);
+  column-gap: 4rem;
+
   padding: 1.5rem 2rem;
   border-radius: 10px;
 `;
@@ -199,6 +225,7 @@ const Path = styled.nav`
   grid-row: 1 / 2;
   color: #d3d3d3;
   font-size: 0.9rem;
+  font-weight: bold;
 
   a {
     color: #d3d3d3;
@@ -296,6 +323,4 @@ const InfoMob = styled.div`
   justify-content: space-between;
   width: 100%;
   margin: 1rem 0;
-
- 
 `;
