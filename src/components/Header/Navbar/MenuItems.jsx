@@ -99,17 +99,17 @@ export default function MenuItems({ items, depthLevel }) {
 
 const StyledLi = styled.li`
   position: relative;
-  margin: 1rem;
+  margin: .3rem;
 
   a {
     display: block;
-    border: 3px solid transparent;
+    border-bottom: 3px solid transparent;
   }
 
   > a,
   .menu-items button {
     text-align: left;
-    border: 3px solid transparent;
+    border-bottom: 3px solid transparent;
   }
 
   a:hover{

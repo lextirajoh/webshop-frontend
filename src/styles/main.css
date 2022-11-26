@@ -52,22 +52,22 @@
     flex-direction: column;
     position: absolute;
     width: 100%;
-    height: 100vh;
-    top: 5rem;
+    height: 150vh;
+    top: 4rem;
     right: -100%;
-    background-image: linear-gradient(
-      90deg,
-      hsl(221deg 65% 51%) 0%,
-      hsl(208deg 100% 43%) 11%,
-      hsl(205deg 100% 43%) 22%,
-      hsl(202deg 100% 43%) 33%,
-      hsl(198deg 100% 42%) 44%,
-      hsl(193deg 100% 40%) 56%,
-      hsl(189deg 100% 38%) 67%,
-      hsl(184deg 100% 36%) 78%,
-      hsl(178deg 86% 38%) 89%,
-      hsl(170deg 45% 52%) 100%
-    );
+background-image: linear-gradient(
+    90deg,
+    hsl(54deg 83% 45%) 0%,
+    hsl(52deg 87% 45%) 17%,
+    hsl(50deg 90% 45%) 43%,
+    hsl(49deg 92% 45%) 65%,
+    hsl(47deg 93% 45%) 80%,
+    hsl(45deg 93% 46%) 89%,
+    hsl(44deg 92% 47%) 95%,
+    hsl(42deg 90% 48%) 98%,
+    hsl(40deg 88% 49%) 100%,
+    hsl(38deg 87% 51%) 100%
+  );
     transition: all 0.5s ease;
   }
 

@@ -24,7 +24,7 @@ import {
 } from './pages';
 
 // styles
-import './styles/index.css';
+import './styles/main.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

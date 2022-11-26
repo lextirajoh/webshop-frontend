@@ -19,11 +19,7 @@ export const dropdownContent = [
       {
         title: 'Party',
         url: '/products/Party',
-      },
-      {
-        title: 'Abstract',
-        url: '/products/Abstract',
-      },
+      }
     ],
   },
   // { title: 'Sale', url: '/Sale' },

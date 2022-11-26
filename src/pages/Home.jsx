@@ -110,6 +110,7 @@ const HeroTitle = styled.div`
 
 const HeroImg = styled.img`
   width: 50%;
+  height: 50%;
 `;
 
 const MiddleSection = styled.section`
