@@ -62,6 +62,10 @@ p {
 a {
   text-decoration: none;
   color: black;
+
+  :hover {
+    color: #353535;
+  }
 }
 
 `;

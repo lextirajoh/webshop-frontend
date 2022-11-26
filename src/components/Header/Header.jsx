@@ -69,13 +69,10 @@ export default function Header() {
     <>
       <Container>
         <LeftSection>
-          <Link to="/">BoredGamers</Link>
+          <Logo to="/">BoredGamers</Logo>
+          <Navbar />
         </LeftSection>
 
-        <MiddleSection>
-          {' '}
-          <Navbar />
-        </MiddleSection>
         <RightSection>
           <div>
             <ShowOnLogout>
@@ -111,8 +108,7 @@ export default function Header() {
           <Cart>
             <NavLink to="/cart">
               <img src={carticon} alt="" />
-              {cartTotalQuantity > 0 &&
-              <Badge>{cartTotalQuantity}</Badge>}
+              {cartTotalQuantity > 0 && <Badge>{cartTotalQuantity}</Badge>}
             </NavLink>
           </Cart>
         </RightSection>
@@ -260,19 +256,15 @@ const Container = styled.header`
 `;
 
 const LeftSection = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const Logo = styled(Link)`
   font-family: Brush Script MT;
   font-size: 2.5rem;
 `;
 
-const MiddleSection = styled.div`
-  display: flex;
-  justify-content: center;
-  font-size: 1.1rem;
-
-  @media (max-width: 62rem) {
-    display: none;
-  }
-`;
 
 const RightSection = styled.div`
   display: flex;

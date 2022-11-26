@@ -18,8 +18,11 @@ export default function Navbar() {
 const StyledUL = styled.ul`
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   list-style: none;
   font-weight: bold;
+
+  @media (max-width: 62rem) {
+    display: none;
+  }
 `;
