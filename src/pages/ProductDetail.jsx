@@ -9,7 +9,6 @@ import styled from 'styled-components';
 
 export default function ProductDetail() {
   const cart = useSelector((state) => state.cart);
-  const wishlist = useSelector((state) => state.wishlist);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { data } = useGetAllProductsQuery();
@@ -24,6 +23,7 @@ export default function ProductDetail() {
     dispatch(addToCart(product));
     // navigate('/cart');
   }
+
   function handleAddToWishlist(product) {
     dispatch(addToWishlist(product));
     navigate('/wishlist');
