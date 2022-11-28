@@ -75,7 +75,6 @@ const Container = styled.div`
 
 const Name = styled.span`
   font-family: Brush Script MT;
-  color: gold;
   font-size: 1.8rem;
 `;
 
