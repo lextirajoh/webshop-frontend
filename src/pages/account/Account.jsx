@@ -4,6 +4,7 @@ import { auth } from '../../utils/firebase';
 import { signOut } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import styled from 'styled-components';
+import Footer from '../../components/Footer/Footer';
 
 export default function Account() {
   const navigate = useNavigate();
@@ -21,21 +22,33 @@ export default function Account() {
 
   return (
     <>
-      <Main>
-        <h1>Account-overzicht</h1>
-        <hr />
-        <button onClick={handleLogout}>Log uit</button>
-      </Main>
+      <Container>
+        <Main>
+          <h1>Account-overzicht</h1>
+          <hr />
+          <button onClick={handleLogout}>Log uit</button>
+        </Main>
+        <Footer />
+      </Container>
     </>
   );
 }
 
+const Container = styled.div`
+    display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+`
+
 const Main = styled.main`
-display: flex;
-flex-direction: column;
-  width: 80%;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 7rem auto 4rem auto;
+
   border-radius: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.2);
   padding: 2rem;
 
   button {

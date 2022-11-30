@@ -54,7 +54,7 @@ const Wrapper = styled.footer`
   display: flex;
   justify-content: center;
   margin-top: auto;
-  padding: 2rem 0;
+  padding: 1rem 0;
   width: 100%;
   color: white;
   background-color: rgba(0, 0, 0, 0.4);
