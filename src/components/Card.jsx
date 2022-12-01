@@ -44,8 +44,10 @@ const Container = styled.div`
   color: white;
   border-radius: 10px;
 
-  @media (max-width: 62rem) {
+  @media (max-width: 50rem) {
     margin: 1rem 0;
+    padding: 0 1rem;
+    width: 100%;
   }
 
   :hover {

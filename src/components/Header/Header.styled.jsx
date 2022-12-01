@@ -48,11 +48,17 @@ export const LeftSection = styled.div`
 
 export const Logo = styled(Link)`
   font-family: Brush Script MT;
-  font-size: 2.5rem;
+  font-size: 2rem;
 
   :hover {
     color: black;
   }
+
+  @media (min-width: 62rem) {
+    font-size: 2.5rem;
+
+  }
+
 `;
 
 export const RightSection = styled.div`

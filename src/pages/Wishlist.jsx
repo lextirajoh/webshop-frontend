@@ -8,6 +8,7 @@ import {
   getTotal,
 } from '../utils/wishlistSlice';
 import leftarrow from '../assets/left-arrow.png';
+import Footer from '../components/Footer/Footer';
 
 export default function Wishlist() {
   const wishlist = useSelector((state) => state.wishlist);
@@ -40,7 +41,7 @@ export default function Wishlist() {
             </StartShopping>
           </EmptyWishlist>
         ) : (
-          <div>
+          <Main>
             <Titles>
               <ProductTitle>Product</ProductTitle>
               <Price>Prijs</Price>
@@ -52,7 +53,9 @@ export default function Wishlist() {
                     <WishlistProduct>
                       <img src={wishlistItem.image} alt={wishlistItem.title} />
                       <div>
-                      <Link to={`/product-detail/${wishlistItem.id}`}><h3>{wishlistItem.title}</h3></Link>
+                        <Link to={`/product-detail/${wishlistItem.id}`}>
+                          <h3>{wishlistItem.title}</h3>
+                        </Link>
                         <button
                           onClick={() => handleRemoveFromWishlist(wishlistItem)}
                         >
@@ -63,7 +66,6 @@ export default function Wishlist() {
                     <WishlistProductPrice>
                       €{wishlistItem.price}
                     </WishlistProductPrice>
-                    
                   </WishlistItem>
                 ))}
             </WishlistItems>
@@ -72,16 +74,20 @@ export default function Wishlist() {
                 Verwijder alles
               </ClearWishlistButton>
             </WishlistSummary>
-          </div>
+          </Main>
         )}
+        <Footer />
       </Container>
     </>
   );
 }
 
 const Container = styled.section`
-  margin-top: 7rem;
-  padding: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
 
   h2 {
     font-weight: 400;
@@ -89,6 +95,11 @@ const Container = styled.section`
     text-align: center;
   }
 `;
+
+const Main = styled.main`
+  width: 50rem;
+  margin: 6rem auto 4rem auto;
+`
 
 const EmptyWishlist = styled.div`
   font-size: 20px;
@@ -149,7 +160,7 @@ const WishlistProduct = styled.div`
 
   h3 {
     font-weight: 400;
-    color: white
+    color: white;
   }
 
   img {

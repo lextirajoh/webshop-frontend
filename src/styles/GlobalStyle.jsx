@@ -24,17 +24,19 @@ body {
   background-color: black;
   background-image: linear-gradient(
   90deg,
-  hsl(240deg 58% 13%) 0%,
-  hsl(246deg 58% 14%) 17%,
-  hsl(252deg 59% 14%) 43%,
-  hsl(259deg 62% 15%) 65%,
-  hsl(266deg 65% 15%) 80%,
-  hsl(272deg 68% 15%) 89%,
-  hsl(278deg 74% 16%) 95%,
-  hsl(284deg 80% 15%) 98%,
-  hsl(290deg 89% 15%) 100%,
-  hsl(295deg 100% 14%) 100%
+  hsl(0deg 0% 48%) 0%,
+  hsl(53deg 1% 51%) 11%,
+  hsl(54deg 2% 55%) 22%,
+  hsl(54deg 3% 59%) 33%,
+  hsl(54deg 5% 63%) 44%,
+  hsl(54deg 7% 67%) 56%,
+  hsl(54deg 9% 70%) 67%,
+  hsl(54deg 13% 74%) 78%,
+  hsl(54deg 18% 78%) 89%,
+  hsl(55deg 24% 82%) 100%
 );
+
+
 }
 
 #root  {

@@ -105,6 +105,8 @@ const Container = styled.div`
 `;
 
 const Main = styled.main`
+  display: flex;
+  justify-content: center;
   width: 90%;
   margin: 5rem 0;
 
@@ -173,9 +175,16 @@ const Sidebar = styled.nav`
 const ProductGrid = styled.div`
   grid-column: 2 / 5;
   grid-row: 2 / 3;
+
+
+  @media (max-width: 62rem) {
+    grid-column: 1 / 5;
+    width: 100%;
+  }
 `;
 
 const ProductContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 `;

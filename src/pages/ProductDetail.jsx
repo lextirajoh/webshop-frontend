@@ -169,7 +169,6 @@ export default function ProductDetail() {
 
                 <p>{data[product].desc} </p>
               </Desc>
-              <Footer />
             </MainMob>
           </>
         ) : (

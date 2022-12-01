@@ -100,7 +100,7 @@ export default function Header() {
             <NavLink to="/wishlist">
               <img src={hearticon} alt="" />
               {wishlistTotalQuantity > 0 && (
-                <Badge>{wishlistTotalQuantity}</Badge>
+                <S.Badge>{wishlistTotalQuantity}</S.Badge>
               )}
             </NavLink>
           </S.Wishlist>
