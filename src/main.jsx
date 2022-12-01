@@ -17,7 +17,6 @@ import {
   Contact,
   ProductDetail,
   All,
-  Childrens,
   Family,
   Party,
   Strategie,
@@ -45,7 +44,6 @@ root.render(
             <Route path="/products/All" element={<All />} />
             <Route path="/product-detail/:id" element={<ProductDetail />} />
             <Route path="/products/Strategie" element={<Strategie />} />
-            <Route path="/products/Kinderen" element={<Childrens />} />
             <Route path="/products/Familie" element={<Family />} />
             <Route path="/products/Party" element={<Party />} />
             <Route path="*" element={<p>Page not found!</p>} />
