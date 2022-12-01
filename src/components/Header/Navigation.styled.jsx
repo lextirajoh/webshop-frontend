@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 
 const Dropdown = css`
   position: relative;
@@ -21,22 +21,15 @@ const Dropdown = css`
     padding: 0;
     list-style-type: none;
     background-color: rgb(178, 178, 178);
-
     border-radius: 5px;
 
     li {
       display: flex;
       justify-content: end;
-      padding: .5rem;
+      padding: 0.5rem;
 
       :hover {
         background-color: gold;
-      }
-
-      a,
-      a:hover {
-        color: black;
-        border-bottom: none;
       }
     }
   }
@@ -45,9 +38,10 @@ const Dropdown = css`
 const DropdownArrow = css`
   img:nth-of-type(1) {
     position: absolute;
-    top: 33px;
-    right: -30px;
-    height: 13px;
+    top: 27px;
+    right: -25px;
+    width: 15px;
+    height: 12px;
     transition: 400ms;
   }
 
@@ -59,10 +53,6 @@ const DropdownArrow = css`
   }
 `;
 
-export const Home = styled(NavLink)`
-  border-bottom: 3px solid transparent;
-`
-
 export const Nav = styled.nav`
   display: flex;
   align-items: center;
@@ -70,17 +60,19 @@ export const Nav = styled.nav`
   gap: 1rem;
 `;
 
+export const Home = styled.div`
+  border-bottom: 3px solid transparent;
+`
 
-export const Bordspellen = styled.div`
+export const DropdownMenu = styled.div`
   ${Dropdown}
   ${DropdownArrow}
   display: grid;
   place-content: center;
   height: 100%;
 
-  :first-child{
-    border-bottom: 3px solid green
-  }
-
-
 `;
+
+export const Bordspellen = styled(NavLink)`
+  border-bottom: 3px solid transparent;
+`

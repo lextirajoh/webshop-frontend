@@ -1,6 +1,6 @@
 import * as S from './Navigation.styled';
 import arrowdown from '../../assets/arrow-down.png';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 export default function Navigation() {
   let activeStyle = {
@@ -9,35 +9,40 @@ export default function Navigation() {
 
   return (
     <S.Nav>
-      <S.Home
-        to="/"
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}
-      >
-        Home
-        </S.Home>
-      <S.Bordspellen>
+
+      <S.Home>
         <NavLink
-          to="products/All"
+          to="/"
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
         >
-          Bordspellen
+          Home
         </NavLink>
+      </S.Home>
+      <S.DropdownMenu>
+        <S.Bordspellen>
+          <NavLink
+            to="products/All"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
+            Bordspellen
+          </NavLink>
+        </S.Bordspellen>
         <img src={arrowdown} />
         <ul>
           <li>
-            <NavLink to="products/All">Alle spellen</NavLink>
+            <Link to="products/All">Alle spellen</Link>
           </li>
           <li>
-            <NavLink to="products/Strategie">Strategiespellen</NavLink>
+            <Link to="products/Strategie">Strategiespellen</Link>
           </li>
           <li>
-            <NavLink to="products/Familie">Familiespellen</NavLink>
+            <Link to="products/Familie">Familiespellen</Link>
           </li>
           <li>
-            <NavLink to="products/Party">Partyspellen</NavLink>
+            <Link to="products/Party">Partyspellen</Link>
           </li>
         </ul>
-      </S.Bordspellen>
+      </S.DropdownMenu>
     </S.Nav>
   );
 }
