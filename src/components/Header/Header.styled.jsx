@@ -44,6 +44,7 @@ export const Container = styled.header`
 export const LeftSection = styled.div`
   display: flex;
   align-items: center;
+  gap: 2rem;
 `;
 
 export const Logo = styled(Link)`

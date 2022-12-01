@@ -20,7 +20,7 @@ import {
   Childrens,
   Family,
   Party,
-  Strategie
+  Strategie,
 } from './pages';
 
 // styles

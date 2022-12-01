@@ -1,7 +1,5 @@
 import { Outlet } from 'react-router-dom';
 import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-// import Search from './components/Search/Search';
 
 // styles
 import GlobalStyle from './styles/GlobalStyle';
@@ -27,9 +25,7 @@ export default function App() {
         theme="dark"
       />
       <Header />
-      {/* <Search /> */}
       <Outlet />
-      {/* <Footer /> */}
     </>
   );
 }

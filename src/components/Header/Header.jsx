@@ -5,7 +5,7 @@ import { auth } from '../../utils/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { setActiveUser, removeActiveUser } from '../../utils/authSlice';
 import ShowOnLogin, { ShowOnLogout } from '../HiddenLink/hiddenLink';
-import Navbar from './Navbar/Navbar';
+import Navigation from './Navigation';
 import accounticon from '../../assets/account.png';
 import carticon from '../../assets/cart.png';
 import hearticon from '../../assets/heart.png';
@@ -70,7 +70,7 @@ export default function Header() {
       <S.Container>
         <S.LeftSection>
           <S.Logo to="/">BoredGamers</S.Logo>
-          <Navbar />
+          <Navigation />
         </S.LeftSection>
 
         <S.RightSection>
