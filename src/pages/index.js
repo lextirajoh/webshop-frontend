@@ -8,7 +8,6 @@ export { default as Cart } from './Cart.jsx';
 export { default as Contact } from './Contact.jsx';
 export { default as ProductDetail } from './ProductDetail.jsx';
 export { default as All } from './ProductOverview.jsx';
-export { default as Childrens } from './categories/Childrens.jsx';
 export { default as Family } from './categories/Family.jsx';
 export { default as Party } from './categories/Party.jsx';
 export { default as Strategie } from './categories/Strategie.jsx';
