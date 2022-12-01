@@ -1,4 +1,5 @@
 import { useGetAllProductsQuery } from '../utils/productsApi';
+import { Link } from 'react-router-dom';
 import Card from '../components/Card';
 import styled from 'styled-components';
 import marvel from '../assets/marvel2.png';
@@ -17,7 +18,7 @@ export default function Home() {
               The Card Game
             </h1>
             <h2>
-              <a href="/product-detail/9">Reserveer nu</a>{' '}
+              <Link to="/product-detail/9">Reserveer nu</Link>
             </h2>
           </HeroTitle>
           <HeroImg src={marvel} alt="Marvel superheroes" />
