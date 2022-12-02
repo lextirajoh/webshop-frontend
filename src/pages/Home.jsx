@@ -17,9 +17,13 @@ export default function Home() {
               Marvel Champions: <br />
               The Card Game
             </h1>
-            <h2>
+            <p>
+              Kruip in de huid van je favoriete Marvel-held en versla de
+              schurken uit het universum!
+            </p>
+            <p>
               <Link to="/product-detail/9">Reserveer nu</Link>
-            </h2>
+            </p>
           </HeroTitle>
           <HeroImg src={marvel} alt="Marvel superheroes" />
         </Hero>
@@ -115,8 +119,11 @@ const HeroTitle = styled.div`
     text-shadow: 3px 3px 3px #393939;
     font-style: italic;
   }
+  p:nth-of-type(1) {
+    display: none;
+  }
 
-  h2 {
+  p:nth-of-type(2) {
     position: absolute;
     top: 20%;
     left: 60%;
@@ -138,7 +145,18 @@ const HeroTitle = styled.div`
       text-shadow: 4px 4px #393939;
     }
 
-    h2 {
+    p:nth-of-type(1) {
+      position: absolute;
+      display: block;
+      top: 40%;
+      left: 5%;
+      width: 35%;
+      font-size: 2vw;
+      font-weight: 900;
+      text-shadow: 2px 2px 2px #393939;
+    }
+
+    p:nth-of-type(2) {
       top: 80%;
       left: 3%;
       font-size: 4vw;
@@ -161,10 +179,10 @@ const HeroImg = styled.img`
     margin-bottom: -5rem;
     padding-top: 0;
     background-image: radial-gradient(
-    50% 50% at center,
-    rgba(0, 0, 0, 0.9),
-    transparent
-  );
+      50% 50% at center,
+      rgba(0, 0, 0, 0.9),
+      transparent
+    );
   }
 `;
 
