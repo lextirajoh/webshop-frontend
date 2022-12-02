@@ -16,6 +16,10 @@ export const Home = styled.div`
   border-bottom: 3px solid transparent;
 `;
 
+export const Bordspellen = styled(NavLink)`
+  border-bottom: 3px solid transparent;
+`;
+
 export const DropdownMenu = styled.div`
   position: relative;
   display: grid;
@@ -38,7 +42,9 @@ export const DropdownMenu = styled.div`
     padding: 0;
     list-style-type: none;
     background-color: rgb(178, 178, 178);
-    border-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 3px 3px 7px rgb(68, 68, 68);
 
     li {
       display: flex;
@@ -66,8 +72,4 @@ export const DropdownMenu = styled.div`
       transition: transform 400ms;
     }
   }
-`;
-
-export const Bordspellen = styled(NavLink)`
-  border-bottom: 3px solid transparent;
 `;

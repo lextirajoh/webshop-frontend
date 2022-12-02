@@ -20,9 +20,9 @@ export default function Header() {
   const [displayName, setDisplayName] = useState('');
   const dispatch = useDispatch();
 
-  // let activeStyle = {
-  //   borderBottom: '3px solid black',
-  // };
+  let activeStyle = {
+    borderBottom: '3px solid black',
+  };
 
   // monitor currently active user
   useEffect(() => {
@@ -76,7 +76,7 @@ export default function Header() {
         <S.RightSection>
           <div>
             <ShowOnLogout>
-              <NavLink to="/account/login">log in</NavLink>
+              <NavLink to="/account/login" style={({ isActive }) => (isActive ? activeStyle : undefined)}>log in</NavLink>
             </ShowOnLogout>
           </div>
           <S.Name>
@@ -97,7 +97,7 @@ export default function Header() {
             </ShowOnLogin>
           </div>
           <S.Wishlist>
-            <NavLink to="/wishlist">
+            <NavLink to="/wishlist" >
               <img src={hearticon} alt="" />
               {wishlistTotalQuantity > 0 && (
                 <S.Badge>{wishlistTotalQuantity}</S.Badge>
