@@ -1,9 +1,26 @@
 import { NavLink } from 'react-router-dom';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-const Dropdown = css`
+export const Nav = styled.nav`
+  display: none;
+  align-items: center;
+  height: 4rem;
+  gap: 1rem;
+
+  @media (min-width: 50rem) {
+    display: flex;
+  }
+`;
+
+export const Home = styled.div`
+  border-bottom: 3px solid transparent;
+`;
+
+export const DropdownMenu = styled.div`
   position: relative;
-  display: flex;
+  display: grid;
+  place-content: center;
+  height: 100%;
 
   &:hover {
     ul {
@@ -33,9 +50,7 @@ const Dropdown = css`
       }
     }
   }
-`;
 
-const DropdownArrow = css`
   img:nth-of-type(1) {
     position: absolute;
     top: 27px;
@@ -53,30 +68,6 @@ const DropdownArrow = css`
   }
 `;
 
-export const Nav = styled.nav`
-  display: none;
-  align-items: center;
-  height: 4rem;
-  gap: 1rem;
-
-  @media (min-width: 50rem) {
-    display: flex;
-  }
-`;
-
-export const Home = styled.div`
-  border-bottom: 3px solid transparent;
-`
-
-export const DropdownMenu = styled.div`
-  ${Dropdown}
-  ${DropdownArrow}
-  display: grid;
-  place-content: center;
-  height: 100%;
-
-`;
-
 export const Bordspellen = styled(NavLink)`
   border-bottom: 3px solid transparent;
-`
+`;
