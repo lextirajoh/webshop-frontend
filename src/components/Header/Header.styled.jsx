@@ -55,7 +55,7 @@ export const Logo = styled(Link)`
     color: black;
   }
 
-  @media (min-width: 62rem) {
+  @media (min-width: 50rem) {
     font-size: 2.5rem;
 
   }
@@ -72,7 +72,7 @@ export const RightSection = styled.div`
     margin: 0 0.7rem;
   }
 
-  @media (max-width: 62rem) {
+  @media (max-width: 50rem) {
     display: none;
   }
 `;
@@ -143,7 +143,7 @@ export const Badge = styled.div`
 export const MobileMenu = styled.div`
   list-style: none;
 
-  @media (min-width: 62rem) {
+  @media (min-width: 50rem) {
     display: none;
   }
 `;

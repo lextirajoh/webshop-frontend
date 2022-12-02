@@ -54,10 +54,14 @@ const DropdownArrow = css`
 `;
 
 export const Nav = styled.nav`
-  display: flex;
+  display: none;
   align-items: center;
   height: 4rem;
   gap: 1rem;
+
+  @media (min-width: 50rem) {
+    display: flex;
+  }
 `;
 
 export const Home = styled.div`
