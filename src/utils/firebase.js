@@ -4,8 +4,7 @@ import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
-  // apiKey: 'import.meta.env.VITE_API_KEY',
-  apiKey: 'AIzaSyCF7Ol4GcLgyfnvaMeuH0wfSg3wg4ujLno',
+  apiKey: import.meta.env.VITE_API_KEY,
   authDomain: 'bored-gamers.firebaseapp.com',
   projectId: 'bored-gamers',
   storageBucket: 'bored-gamers.appspot.com',
