@@ -9,7 +9,7 @@
   padding: 0.5rem 0;
   list-style: none;
   color: white;
-  background-color: rgb(41,92,122);
+  background-color: rgb(41, 92, 122);
   border-radius: 0.4rem;
   display: none;
 }
@@ -44,6 +44,13 @@
   height: 100%;
 }
 
+.heading {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: gold;
+  font-weight: 900;
+  text-shadow: 3px 3px 3px #393939;
+}
+
 /* mobile menu */
 
 @media screen and (max-width: 62rem) {
@@ -55,19 +62,19 @@
     height: 150vh;
     top: 4rem;
     right: -100%;
-background-image: linear-gradient(
-    90deg,
-    hsl(54deg 83% 45%) 0%,
-    hsl(52deg 87% 45%) 17%,
-    hsl(50deg 90% 45%) 43%,
-    hsl(49deg 92% 45%) 65%,
-    hsl(47deg 93% 45%) 80%,
-    hsl(45deg 93% 46%) 89%,
-    hsl(44deg 92% 47%) 95%,
-    hsl(42deg 90% 48%) 98%,
-    hsl(40deg 88% 49%) 100%,
-    hsl(38deg 87% 51%) 100%
-  );
+    background-image: linear-gradient(
+      90deg,
+      hsl(54deg 83% 45%) 0%,
+      hsl(52deg 87% 45%) 17%,
+      hsl(50deg 90% 45%) 43%,
+      hsl(49deg 92% 45%) 65%,
+      hsl(47deg 93% 45%) 80%,
+      hsl(45deg 93% 46%) 89%,
+      hsl(44deg 92% 47%) 95%,
+      hsl(42deg 90% 48%) 98%,
+      hsl(40deg 88% 49%) 100%,
+      hsl(38deg 87% 51%) 100%
+    );
     transition: all 0.5s ease;
   }
 
@@ -85,7 +92,7 @@ background-image: linear-gradient(
 
   .nav-links {
     width: 100%;
-    padding: .5rem;
+    padding: 0.5rem;
     cursor: pointer;
     text-align: right;
     display: table;
@@ -95,7 +102,6 @@ background-image: linear-gradient(
     color: purple;
     transition: all 0.3s ease;
   }
-
 
   .menu-icon {
     display: block;

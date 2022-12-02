@@ -34,7 +34,7 @@ export default function Login() {
       <Container>
         <Main>
           <Form onSubmit={handleLogin}>
-            <h1>Login</h1>
+            <h1 className="heading">Login</h1>
             <hr />
             <label htmlFor="email">Email:</label>
             <input
@@ -81,12 +81,21 @@ const Container = styled.div`
 const Main = styled.main`
   margin: 7rem auto 4rem auto;
   padding: 2rem;
-  width: 25rem;
+  width: 90%;
   border-radius: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
 
-  a:hover {
+  @media (min-width: 30rem) {
+    width: 25rem;
+  }
+
+  a {
     text-decoration: underline;
+    color: white;
+
+    :hover {
+      color: black
+    }
   }
 `;
 
@@ -112,23 +121,14 @@ const Form = styled.form`
     height: 2rem;
     margin: 1rem 0 1rem auto;
     color: #000000;
-    background-color: #dadada;
+    background-color: gold;
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
 
     :hover {
-      color: white;
-      background-color: hsl(300, 50%, 25%);
+      background-color: #ffde22;
       transition: 300ms;
-    }
-  }
-
-  a {
-    color: white;
-
-    :hover {
-      color: #d9d8d8;
     }
   }
 `;

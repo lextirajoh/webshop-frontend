@@ -46,7 +46,7 @@ export default function Home() {
         </MiddleSection>
         <hr />
         <MiddleSection>
-          <MiddleTitle>ONZE AANRADERS</MiddleTitle>
+          <MiddleTitle>BESTSELLERS</MiddleTitle>
           <ProductContainer>
             {isLoading ? (
               <p>Loading...</p>
@@ -112,7 +112,7 @@ const HeroTitle = styled.div`
     font-size: 8vw;
     color: gold;
     font-weight: 900;
-    text-shadow: 3px 3px #393939;
+    text-shadow: 3px 3px 3px #393939;
     font-style: italic;
   }
 
@@ -123,7 +123,7 @@ const HeroTitle = styled.div`
     font-size: 6vw;
     font-weight: 900;
     font-style: italic;
-    text-shadow: 2px 2px #393939;
+    text-shadow: 2px 2px 2px #393939;
 
     a {
       color: white;

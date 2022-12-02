@@ -35,7 +35,7 @@ export default function Register() {
     <>
       <Main>
         <Form onSubmit={handleRegister}>
-          <h2>Registreer</h2>
+          <h1 className='heading'>Registreer</h1>
           <hr />
           <label htmlFor="email">Email:</label>
           <input
@@ -84,20 +84,30 @@ const Main = styled.main`
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
-  
-  a:hover {
+
+  a {
     text-decoration: underline;
+    color: white;
+
+    :hover {
+      color: black
+    }
   }
 `;
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  width: 25rem;
+  width: 90%;
   margin: 7rem auto 4rem auto;
   padding: 2rem;
   border-radius: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.2);
-  h2 {
+  background-color: rgba(0, 0, 0, 0.1);
+
+  @media (min-width: 30rem) {
+    width: 25rem;
+  }
+
+  h1 {
     margin: 0 auto 1rem auto;
   }
 
@@ -108,30 +118,20 @@ const Form = styled.form`
     padding: 0.3rem;
     border-radius: 0.4rem;
     border: 1px solid lightgray;
-    outline: none;
   }
 
   button {
     width: 40%;
     height: 2rem;
     margin: 1rem 0 1rem auto;
-    background-color: dadada;
+    background-color: gold;
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
 
     :hover {
-      color: white;
-      background-color: hsl(300, 50%, 25%);
+      background-color: #ffde22;
       transition: 300ms;
-    }
-  }
-
-  a {
-    color: white;
-
-    :hover {
-      color: #d9d8d8;
     }
   }
 `;

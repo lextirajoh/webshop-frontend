@@ -35,36 +35,37 @@ export default function Account() {
 }
 
 const Container = styled.div`
-    display: flex;
+  display: flex;
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
-`
+`;
 
 const Main = styled.main`
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 90%;
   margin: 7rem auto 4rem auto;
-
   border-radius: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
   padding: 2rem;
+
+  @media (min-width: 30rem) {
+    width: 25rem;
+  }
 
   button {
     width: 10rem;
     height: 2rem;
     margin: 1rem 0 1rem auto;
-
-    background-color: white;
+    background-color: gold;
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
 
     :hover {
-      color: white;
-      background-color: #186297;
-      transition: 400ms;
+      background-color: #ffde22;
+      transition: 300ms;
     }
   }
 `;
