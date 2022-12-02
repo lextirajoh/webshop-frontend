@@ -186,7 +186,7 @@ const MiddleSection = styled.section`
   }
 `;
 
-const MiddleTitle = styled.p`
+const MiddleTitle = styled.h2`
   display: block;
   text-align: center;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;

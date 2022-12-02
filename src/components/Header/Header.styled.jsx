@@ -57,9 +57,7 @@ export const Logo = styled(Link)`
 
   @media (min-width: 50rem) {
     font-size: 2.5rem;
-
   }
-
 `;
 
 export const RightSection = styled.div`
@@ -74,6 +72,10 @@ export const RightSection = styled.div`
 
   @media (max-width: 50rem) {
     display: none;
+  }
+
+  img:hover {
+    transform: scale(1.05);
   }
 `;
 
