@@ -39,38 +39,40 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 15rem;
-  margin: 0 1rem;
-  padding: 1rem;
+  margin: 15px;
+  margin-top: 0;
+  padding: 15px;
   color: white;
   border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+
 
   @media (max-width: 50rem) {
-    margin: 1rem 0;
-    padding: 0 1rem;
+    margin: 15px 0;
     width: 100%;
   }
 
   :hover {
-    background-color: rgba(0, 0, 0, 0.15);
+    background-color: rgba(0, 0, 0, 0.3);
     scale: 1.02;
-    transition: 500ms;
+    transition: 400ms ease-in-out;
   }
 
   button {
     width: 6rem;
     height: 1.5rem;
-    margin-top: 0.5rem;
+    margin-top: 8px;
     font-weight: 400;
     letter-spacing: 1.15px;
     color: black;
-    background-color: white;
+    background-color: gold;
     border: none;
     outline: none;
     border-radius: 5px;
     cursor: pointer;
 
     :hover {
-      background-color: #f8e23c;
+      background-color: #fedf2b;
     }
   }
 `;
@@ -86,12 +88,13 @@ const CardLink = styled(Link)`
   }
 
   img {
-    width: 10rem;
-    margin-bottom: 0.7rem;
+    height: 10rem;
+    margin-bottom: 12px;
     border-radius: 10px;
 
-    @media (max-width: 62rem) {
+    @media (max-width: 50rem) {
       width: 100%;
+      height: auto;
     }
   }
 `;
