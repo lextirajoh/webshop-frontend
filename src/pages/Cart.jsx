@@ -40,7 +40,7 @@ export default function Cart() {
     <>
       <Main>
         <Container>
-          <h2>Winkelwagen</h2>
+          <h1 className='heading'>Winkelwagen</h1>
           {cart.cartItems.length === 0 ? (
             <EmptyCart>
               <p>Uw winkelwagen is momenteel leeg.</p>
@@ -134,10 +134,14 @@ const Container = styled.section`
   align-items: center;
   width: 80%;
   margin: 7rem 4rem 0 4rem;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
 
-  h2 {
+
+  h1 {
     font-weight: 400;
-    font-size: 30px;
+    font-size: 3rem;
     text-align: center;
   }
 `;
@@ -193,7 +197,6 @@ const CartProduct = styled.div`
 
   h3 {
     color: white;
-    font-weight: 400;
   }
 
   img {
@@ -295,7 +298,7 @@ const CartCheckout = styled.div`
     border-radius: 5px;
     font-weight: 400;
     letter-spacing: 1.15px;
-    background-color: white;
+    background-color: gold;
     color: black;
     border: none;
     outline: none;
