@@ -29,7 +29,7 @@ export default function Wishlist() {
   return (
     <>
       <Container>
-        <h2>Wenslijst</h2>
+        <h1 className='heading '>Wenslijst</h1>
         {wishlist.wishlistItems.length === 0 ? (
           <EmptyWishlist>
             <p>Uw wenslijst is momenteel leeg.</p>
@@ -89,7 +89,7 @@ const Container = styled.section`
   width: 100%;
   background-color: rgba(255, 255, 255, 0.1);
 
-  h2 {
+  h1 {
     font-weight: 400;
     font-size: 30px;
     text-align: center;
