@@ -28,8 +28,8 @@ export default function Home() {
           <HeroImg src={marvel} alt="Marvel superheroes" />
         </Hero>
 
-        <MiddleSection>
-          <MiddleTitle>NIEUW BINNEN</MiddleTitle>
+        <FeaturedSection>
+          <FeaturedTitle>NIEUW BINNEN</FeaturedTitle>
           <ProductContainer>
             {isLoading ? (
               <p>Loading...</p>
@@ -47,10 +47,10 @@ export default function Home() {
               </>
             )}
           </ProductContainer>
-        </MiddleSection>
-        <hr />
-        <MiddleSection>
-          <MiddleTitle>BESTSELLERS</MiddleTitle>
+        </FeaturedSection>
+
+        <FeaturedSection>
+          <FeaturedTitle>BESTSELLERS</FeaturedTitle>
           <ProductContainer>
             {isLoading ? (
               <p>Loading...</p>
@@ -60,16 +60,14 @@ export default function Home() {
               <>
                 {data?.map((product) =>
                   product.category === 'Familie' ? (
-                    <div key={product.id}>
-                      <Card product={product} />
-                    </div>
+                    <Card product={product} key={product.id} />
                   ) : null
                 )}
               </>
             )}
           </ProductContainer>
-        </MiddleSection>
-        <Footer></Footer>
+        </FeaturedSection>
+        <Footer />
       </Main>
     </>
   );
@@ -104,15 +102,15 @@ const HeroTitle = styled.div`
   left: 0;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-around; */
   width: 100%;
   height: 100%;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
   h1 {
     position: absolute;
     top: 5%;
     left: 3%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
     font-size: 8vw;
     color: gold;
     font-weight: 900;
@@ -120,7 +118,14 @@ const HeroTitle = styled.div`
     font-style: italic;
   }
   p:nth-of-type(1) {
+    position: absolute;
     display: none;
+    top: 45%;
+    left: 5%;
+    width: 35%;
+    font-size: 1.7vw;
+    font-weight: 900;
+    text-shadow: 1px 1px 1px #393939;
   }
 
   p:nth-of-type(2) {
@@ -129,7 +134,7 @@ const HeroTitle = styled.div`
     left: 60%;
     font-size: 6vw;
     font-weight: 900;
-    font-style: italic;
+    /* font-style: italic; */
     text-shadow: 2px 2px 2px #393939;
 
     a {
@@ -146,20 +151,13 @@ const HeroTitle = styled.div`
     }
 
     p:nth-of-type(1) {
-      position: absolute;
       display: block;
-      top: 40%;
-      left: 5%;
-      width: 35%;
-      font-size: 2vw;
-      font-weight: 900;
-      text-shadow: 2px 2px 2px #393939;
     }
 
     p:nth-of-type(2) {
       top: 80%;
       left: 3%;
-      font-size: 4vw;
+      font-size: 3.5vw;
     }
   }
 `;
@@ -186,7 +184,7 @@ const HeroImg = styled.img`
   }
 `;
 
-const MiddleSection = styled.section`
+const FeaturedSection = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -200,11 +198,11 @@ const MiddleSection = styled.section`
   }
 
   @media (min-width: 50rem) {
-    padding-top: 2rem;
+    padding: 3rem 0;
   }
 `;
 
-const MiddleTitle = styled.h2`
+const FeaturedTitle = styled.h2`
   display: block;
   text-align: center;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -219,6 +217,7 @@ const MiddleTitle = styled.h2`
     font-size: 3rem;
     text-align: start;
     text-shadow: 5px 5px #393939;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -226,4 +225,5 @@ const ProductContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
 `;

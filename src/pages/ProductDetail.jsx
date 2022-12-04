@@ -95,8 +95,8 @@ export default function ProductDetail() {
                 <Desc>
                   <h5>Beschrijving</h5>
                   <hr />
-                  {data[product].desc.split('\n').map((sentence) => {
-                    return <p>{sentence}</p>;
+                  {data[product].desc.split('\n').map((sentence, index) => {
+                    return <p key={index}>{sentence}</p>;
                   })}
                 </Desc>
               </RightColumn>
@@ -275,6 +275,10 @@ const WishlistButton = styled.button`
   color: black;
   background-color: white;
   cursor: pointer;
+
+  :hover {
+  background-color: #e5e5e5;
+  }
 `;
 
 const BuyButton = styled.button`
@@ -287,13 +291,11 @@ const BuyButton = styled.button`
   outline: none;
   margin-top: 1rem;
   color: black;
-  background-color: #f8e23c;
+  background-color: gold;
   cursor: pointer;
 
   :hover {
-    color: black;
-    background-color: #fae01b;
-    transition: 400ms;
+    background-color: #fbe643;
   }
 `;
 
