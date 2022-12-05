@@ -123,8 +123,6 @@ const BlackWrap = styled.div`
   @media (max-width: 50rem) {
     display: flex;
     flex-direction: column;
-    background-color: transparent;
-    padding: 1.5rem 0;
   }
 
   hr {
@@ -135,7 +133,12 @@ const BlackWrap = styled.div`
 const Heading = styled.div`
   grid-column: 1 / 5;
   grid-row: 1 / 2;
-  margin: 2rem auto;
+  margin: 0 auto;
+
+  @media (min-width: 50rem) {
+    margin: 2rem auto;
+
+  }
 `;
 
 const Sidebar = styled.nav`

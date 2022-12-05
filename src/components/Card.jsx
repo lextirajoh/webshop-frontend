@@ -49,7 +49,7 @@ const Container = styled.div`
 
   @media (max-width: 50rem) {
     margin: 15px 0;
-    width: 100%;
+    width: 85vw;
   }
 
   :hover {

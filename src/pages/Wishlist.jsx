@@ -29,7 +29,7 @@ export default function Wishlist() {
   return (
     <>
       <Container>
-        <h1 className='heading '>Wenslijst</h1>
+        <h1 className="heading ">Wenslijst</h1>
         {wishlist.wishlistItems.length === 0 ? (
           <EmptyWishlist>
             <p>Uw wenslijst is momenteel leeg.</p>
@@ -97,13 +97,22 @@ const Container = styled.section`
 `;
 
 const Main = styled.main`
-  width: 50rem;
-  margin: 6rem auto 4rem auto;
-`
+  width: 90%;
+  margin: 45px auto 60px auto;
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+
+  @media (min-width: 40rem) {
+    width: 80%;
+  margin: 90px auto 60px auto;
+
+  }
+`;
 
 const EmptyWishlist = styled.div`
   font-size: 20px;
-  margin-top: 2rem;
+  margin-top: 7rem;
   color: white;
   display: flex;
   flex-direction: column;
@@ -126,9 +135,9 @@ const StartShopping = styled.div`
 const Titles = styled.div`
   display: grid;
   align-items: center;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 5fr 1fr;
   column-gap: 0.5rem;
-  margin: 2rem 0 1rem 0;
+  margin: 15px 0;
 
   h3 {
     font-size: 14px;
@@ -143,15 +152,17 @@ const ProductTitle = styled.h3`
 
 const Price = styled.h3``;
 
-const WishlistItems = styled.div``;
+const WishlistItems = styled.div`
+  /* border: 1px solid yellow; */
+  border-top: 1px solid white;
+`;
 
 const WishlistItem = styled.div`
   display: grid;
   align-items: center;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 5fr 1fr;
   column-gap: 0.5rem;
-  width: 30rem;
-  border-top: 1px solid white;
+  width: 100%;
   padding: 1rem 0;
 `;
 

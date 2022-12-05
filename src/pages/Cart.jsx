@@ -40,7 +40,7 @@ export default function Cart() {
     <>
       <Main>
         <Container>
-          <h1 className='heading'>Winkelwagen</h1>
+          <h1 className="heading">Winkelwagen</h1>
           {cart.cartItems.length === 0 ? (
             <EmptyCart>
               <p>Uw winkelwagen is momenteel leeg.</p>
@@ -52,7 +52,7 @@ export default function Cart() {
               </StartShopping>
             </EmptyCart>
           ) : (
-            <div>
+            <Content>
               <Titles>
                 <ProductTitle>Product</ProductTitle>
                 <Price>Prijs</Price>
@@ -111,7 +111,7 @@ export default function Cart() {
                   </ContinueShopping>
                 </CartCheckout>
               </CartSummary>
-            </div>
+            </Content>
           )}
         </Container>
         <Footer />
@@ -132,12 +132,15 @@ const Container = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80%;
-  margin: 7rem 4rem 0 4rem;
+  width: 90%;
+  margin: 7rem 4rem 3rem 4rem;
   padding: 30px;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.1);
 
+  @media (min-width: 50rem) {
+    width: 80%;
+  }
 
   h1 {
     font-weight: 400;
@@ -158,9 +161,13 @@ const EmptyCart = styled.div`
 const Titles = styled.div`
   display: grid;
   align-items: center;
-  grid-template-columns: 3fr 1fr 1fr 1fr;
+  grid-template-columns: 5fr 1fr;
   column-gap: 0.5rem;
   margin: 2rem 0 1rem 0;
+
+  @media (min-width: 50rem) {
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+  }
 
   h3 {
     font-size: 14px;
@@ -174,22 +181,41 @@ const ProductTitle = styled.h3`
 `;
 
 const Price = styled.h3``;
-const Quantity = styled.h3``;
+const Quantity = styled.h3`
+
+  @media (max-width: 50rem) {
+    display: none;
+  }
+`;
 
 const Total = styled.h3`
   padding-right: 0.5rem;
   justify-self: right;
+  @media (max-width: 50rem) {
+    display: none;
+  }
 `;
 
-const CartItems = styled.div``;
+const Content = styled.div`
+  width: 100%;
+`;
+
+const CartItems = styled.div`
+  width: 100%;
+`;
 
 const CartItem = styled.div`
   display: grid;
+  grid-template-columns: 5fr 1fr;
   align-items: center;
-  grid-template-columns: 3fr 1fr 1fr 1fr;
-  column-gap: 0.5rem;
   border-top: 1px solid white;
+  width: 100%;
   padding: 1rem 0;
+
+  @media (min-width: 50rem) {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+  }
 `;
 
 const CartProduct = styled.div`
@@ -204,9 +230,9 @@ const CartProduct = styled.div`
     max-width: 100%;
     margin-right: 1rem;
 
-    @media (max-width: 62rem) {
+    /* @media (max-width: 50rem) {
       display: none;
-    }
+    } */
   }
 
   button {
@@ -234,6 +260,10 @@ const CartProductQuantity = styled.div`
   border: 0.5px solid white;
   border-radius: 5px;
 
+  @media (max-width: 50rem) {
+    display: none;
+  }
+
   button {
     border: none;
     outline: none;
@@ -252,6 +282,10 @@ const CartProductTotalPrice = styled.div`
   padding-right: 0.5rem;
   justify-self: right;
   font-weight: 700;
+
+  @media (max-width: 50rem) {
+    display: none;
+  }
 `;
 
 const CartSummary = styled.div`
@@ -263,8 +297,8 @@ const CartSummary = styled.div`
 `;
 
 const ClearCartButton = styled.button`
-  width: 200px;
-  height: 40px;
+    width: 6rem;
+    height: 4rem;
   border-radius: 5px;
   font-weight: 400;
   letter-spacing: 1.15px;
@@ -273,6 +307,12 @@ const ClearCartButton = styled.button`
   background: none;
   outline: none;
   cursor: pointer;
+
+  @media (min-width: 50rem) {
+    width: 10rem;
+    height: 2.5rem;
+
+  }
 
   :hover {
     color: white;
@@ -283,8 +323,12 @@ const ClearCartButton = styled.button`
 `;
 
 const CartCheckout = styled.div`
-  width: 270px;
-  max-width: 100%;
+  width: 10rem;
+
+  @media (min-width: 50rem) {
+    width: 17rem;
+  }
+
 
   p {
     font-size: 14px;
