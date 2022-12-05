@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useGetAllProductsQuery } from '../utils/productsApi';
 import Card from '../components/Card';
 import Footer from '../components/Footer/Footer';
@@ -24,44 +24,35 @@ export default function Products() {
               <h2>Filters:</h2>
               <ul>
                 <li>
-                  <NavLink
-                    to="/products"
-                    style={({ isActive }) =>
-                      isActive ? activeStyle : undefined
-                    }
+                  <Link
+                    to="/products/All"
                   >
                     Alle spellen
-                  </NavLink>
+                  </Link>
                 </li>
                 <li>
-                      <NavLink
+                      <Link
                         to="/products/Strategie"
-                        style={({ isActive }) =>
-                          isActive ? activeStyle : undefined
-                        }
+
                       >
                         Strategie
-                      </NavLink>
+                      </Link>
                     </li>
                     <li>
-                      <NavLink
+                      <Link
                         to="/products/Familie"
-                        style={({ isActive }) =>
-                          isActive ? activeStyle : undefined
-                        }
+
                       >
                         Familie
-                      </NavLink>
+                      </Link>
                     </li>
                     <li>
-                      <NavLink
+                      <Link
                         to="/products/Party"
-                        style={({ isActive }) =>
-                          isActive ? activeStyle : undefined
-                        }
+
                       >
                         Party
-                      </NavLink>
+                      </Link>
                     </li>
               </ul>
               <hr />

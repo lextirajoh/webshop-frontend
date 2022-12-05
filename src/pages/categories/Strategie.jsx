@@ -1,111 +1,137 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useGetAllProductsQuery } from '../../utils/productsApi';
 import Card from '../../components/Card';
+import Footer from '../../components/Footer/Footer';
 import styled from 'styled-components';
-
 
 export default function Products() {
   const { data, error, isLoading } = useGetAllProductsQuery();
+
   let activeStyle = {
     borderBottom: '3px solid white',
   };
+
   return (
     <>
-      <Main>
-        <BlackWrap>
-          <Heading>
-            <h2>Strategie</h2>
-            <hr />
-          </Heading>
-          <Sidebar>
-          <hr />
-            <h5>Filters:</h5>
-            <ul>
-            <li>
-              <NavLink
-                to="/products/All"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                Alle spellen
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/products/Strategie"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                Strategie
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/products/Familie"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                Familie
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/products/Abstract"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                Abstract
-              </NavLink>
-            </li>
-            </ul>
-          </Sidebar>
-          <ProductGrid>
-            <ProductContainer>
-              {isLoading ? (
-                <p>Loading...</p>
-              ) : error ? (
-                <p>An error occured...</p>
-              ) : (
-                <>
-                  {data?.map((product) => product.category === 'Strategie' ? (
-                    <div key={product.id}>
-                      <Card product={product} />
-                    </div>
-                  ):null)}
-                </>
-              )}
-            </ProductContainer>
-          </ProductGrid>
-        </BlackWrap>
-      </Main>
+      <Container>
+        <Main>
+          <BlackWrap>
+            <Heading>
+              <h1 className="heading">Strategie</h1>
+            </Heading>
+            <Sidebar>
+              <hr />
+              <h2>Filters:</h2>
+              <ul>
+                <li>
+                  <Link
+                    to="/products/All"
+
+                  >
+                    Alle spellen
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/products/Strategie"
+
+                  >
+                    Strategie
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/products/Familie"
+
+                  >
+                    Familie
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/products/Party"
+
+                  >
+                    Party
+                  </Link>
+                </li>
+              </ul>
+              <hr />
+            </Sidebar>
+            <ProductGrid>
+              <ProductContainer>
+                {isLoading ? (
+                  <p>Loading...</p>
+                ) : error ? (
+                  <p>An error occured...</p>
+                ) : (
+                  <>
+                    {data?.map((product) =>
+                      product.category === 'Strategie' ? (
+                        <div key={product.id}>
+                          <Card product={product} />
+                        </div>
+                      ) : null
+                    )}
+                  </>
+                )}
+              </ProductContainer>
+            </ProductGrid>
+          </BlackWrap>
+        </Main>
+        <Footer />
+      </Container>
     </>
   );
 }
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(255, 255, 255, 0.1);
+`;
+
 const Main = styled.main`
-  width: 80%;
-  margin-top: 7rem;
-  padding-bottom: 7rem;
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin: 4rem 0;
+
+  @media (max-width: 62rem) {
+    margin-top: 6rem;
+  }
 `;
 
 const BlackWrap = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr auto;
-  column-gap: 2rem;
-  row-gap: 1rem;
+  grid-row-gap: 1rem;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.1);
-  padding: 1.5rem 2rem;
   border-radius: 10px;
   overflow: hidden;
-  
+
+  @media (max-width: 50rem) {
+    display: flex;
+    flex-direction: column;
+  }
+
   hr {
     width: 100%;
   }
 `;
 
-
 const Heading = styled.div`
   grid-column: 1 / 5;
   grid-row: 1 / 2;
   margin: 0 auto;
+
+  @media (min-width: 50rem) {
+    margin: 2rem auto;
+  }
 `;
 
 const Sidebar = styled.nav`
@@ -113,36 +139,41 @@ const Sidebar = styled.nav`
   grid-row: 2 / 3;
   display: flex;
   flex-direction: column;
-  width: 15rem;
+  width: 100%;
   padding: 1.5rem 2rem;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
   color: white;
   font-size: 1.1rem;
   border-radius: 10px;
 
   li {
-    padding: .5rem 0;
+    padding: 0.5rem 0;
   }
 
-  a{
+  a {
     color: white;
 
-    :hover{
+    :hover {
       color: #cfcfcf;
     }
   }
 
-  @media (max-width: 62rem) {
+  @media (max-width: 50rem) {
     display: none;
   }
 `;
-
 const ProductGrid = styled.div`
   grid-column: 2 / 5;
   grid-row: 2 / 3;
+
+  @media (max-width: 50rem) {
+    grid-column: 1 / 5;
+    width: 100%;
+  }
 `;
 
 const ProductContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 `;
