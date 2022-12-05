@@ -47,7 +47,9 @@ export default function ProductDetail() {
                 <img src={data[product].image} alt={product.title} />
                 <h3>€ {data[product].price}</h3>
                 <hr />
-
+                <p>
+                  <strong>Uitgever:</strong> {data[product].publisher}{' '}
+                </p>
                 <p>
                   <strong>Taal:</strong> {data[product].language}{' '}
                 </p>
@@ -60,12 +62,7 @@ export default function ProductDetail() {
                 <p>
                   <strong>Leeftijd:</strong> Vanaf {data[product].age} jaar
                 </p>
-                <p>
-                  <strong>Uitgever:</strong> {data[product].publisher}{' '}
-                </p>
-                <p>
-                  <strong>Type bordspel:</strong> {data[product].type}{' '}
-                </p>
+
                 <hr />
                 <WishlistButton
                   onClick={() => handleAddToWishlist(data[product])}
