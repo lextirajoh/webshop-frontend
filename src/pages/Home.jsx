@@ -22,14 +22,18 @@ export default function Home() {
               schurken uit het universum!
             </p>
             <p>
-              <Link to="/product-detail/9">Reserveer nu</Link>
+              <Link to="/product-detail/11">Weer op voorraad!</Link>
             </p>
           </HeroTitle>
           <HeroImg src={marvel} alt="Marvel superheroes" />
         </Hero>
 
         <FeaturedSection>
-          <FeaturedTitle>FAMILIESPELLEN VOOR DE FEESTDAGEN</FeaturedTitle>
+          <FeaturedTitle>
+            <Link to="/products/Familie">
+              FAMILIESPELLEN VOOR DE FEESTDAGEN
+            </Link>
+          </FeaturedTitle>
           <ProductContainer>
             {isLoading ? (
               <p>Loading...</p>
@@ -50,7 +54,9 @@ export default function Home() {
         </FeaturedSection>
 
         <FeaturedSection>
-          <FeaturedTitle>ONZE FAVORIETE PARTYSPELLEN</FeaturedTitle>
+          <FeaturedTitle>
+            <Link to="/products/Party">ONZE FAVORIETE PARTYSPELLEN</Link>
+          </FeaturedTitle>
           <ProductContainer>
             {isLoading ? (
               <p>Loading...</p>
@@ -69,7 +75,9 @@ export default function Home() {
         </FeaturedSection>
 
         <FeaturedSection>
-          <FeaturedTitle>POPULAIRE STRATEGIESPELLEN</FeaturedTitle>
+          <FeaturedTitle>
+            <Link to="/products/Strategie">POPULAIRE STRATEGIESPELLEN</Link>
+          </FeaturedTitle>
           <ProductContainer>
             {isLoading ? (
               <p>Loading...</p>
@@ -154,12 +162,15 @@ const HeroTitle = styled.div`
     left: 60%;
     font-size: 6vw;
     font-weight: 900;
-    /* font-style: italic; */
-    text-shadow: 2px 2px 2px #393939;
+    text-shadow: 1px 1px 1px #393939;
 
     a {
       color: white;
       text-decoration: underline;
+
+      :hover {
+        color: gold;
+      }
     }
   }
 
@@ -175,9 +186,9 @@ const HeroTitle = styled.div`
     }
 
     p:nth-of-type(2) {
-      top: 80%;
-      left: 3%;
-      font-size: 3.5vw;
+      top: 70%;
+      left: 5%;
+      font-size: 2vw;
     }
   }
 `;
@@ -225,11 +236,7 @@ const FeaturedSection = styled.section`
 const FeaturedTitle = styled.h2`
   display: block;
   text-align: center;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 2rem;
-  font-style: italic;
-  font-weight: bold;
-  color: gold;
+
   text-shadow: 2px 2px 2px #393939;
 
   @media (min-width: 50rem) {
@@ -238,6 +245,14 @@ const FeaturedTitle = styled.h2`
     text-align: start;
     text-shadow: 3px 3px 3px #393939;
     margin-bottom: 2rem;
+  }
+
+  a {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: bold;
+    color: gold;
   }
 `;
 
