@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './utils/store';
 import App from './App';
+import ScrollToTop from "./ScrollToTop";
 
 // pages
 import {
@@ -30,6 +31,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
+      <ScrollToTop />
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<Home />} />

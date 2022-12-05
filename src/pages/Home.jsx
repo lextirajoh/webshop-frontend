@@ -29,7 +29,7 @@ export default function Home() {
         </Hero>
 
         <FeaturedSection>
-          <FeaturedTitle>NIEUW BINNEN</FeaturedTitle>
+          <FeaturedTitle>FAMILIESPELLEN VOOR DE FEESTDAGEN</FeaturedTitle>
           <ProductContainer>
             {isLoading ? (
               <p>Loading...</p>
@@ -38,7 +38,7 @@ export default function Home() {
             ) : (
               <>
                 {data?.map((product) =>
-                  product.category === 'Strategie' ? (
+                  product.category === 'Familie' ? (
                     <div key={product.id}>
                       <Card product={product} />
                     </div>
@@ -50,7 +50,7 @@ export default function Home() {
         </FeaturedSection>
 
         <FeaturedSection>
-          <FeaturedTitle>BESTSELLERS</FeaturedTitle>
+          <FeaturedTitle>ONZE FAVORIETE PARTYSPELLEN</FeaturedTitle>
           <ProductContainer>
             {isLoading ? (
               <p>Loading...</p>
@@ -59,7 +59,7 @@ export default function Home() {
             ) : (
               <>
                 {data?.map((product) =>
-                  product.category === 'Familie' ? (
+                  product.category === 'Party' ? (
                     <Card product={product} key={product.id} />
                   ) : null
                 )}
@@ -67,6 +67,26 @@ export default function Home() {
             )}
           </ProductContainer>
         </FeaturedSection>
+
+        <FeaturedSection>
+          <FeaturedTitle>POPULAIRE STRATEGIESPELLEN</FeaturedTitle>
+          <ProductContainer>
+            {isLoading ? (
+              <p>Loading...</p>
+            ) : error ? (
+              <p>An error occured...</p>
+            ) : (
+              <>
+                {data?.map((product) =>
+                  product.category === 'Strategie' ? (
+                    <Card product={product} key={product.id} />
+                  ) : null
+                )}
+              </>
+            )}
+          </ProductContainer>
+        </FeaturedSection>
+
         <Footer />
       </Main>
     </>
@@ -210,13 +230,13 @@ const FeaturedTitle = styled.h2`
   font-style: italic;
   font-weight: bold;
   color: gold;
-  text-shadow: 2px 2px #393939;
+  text-shadow: 2px 2px 2px #393939;
 
   @media (min-width: 50rem) {
     padding-left: 3rem;
-    font-size: 3rem;
+    font-size: 2.5rem;
     text-align: start;
-    text-shadow: 5px 5px #393939;
+    text-shadow: 3px 3px 3px #393939;
     margin-bottom: 2rem;
   }
 `;

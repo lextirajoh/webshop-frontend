@@ -23,8 +23,8 @@ export default function Card({ product }) {
       <Container>
         <CardLink to={`/product-detail/${product.id}`}>
           <img src={product.image} alt={product.title} />
-          <h4>{product.title}</h4>
-          <h5>€{product.price}</h5>
+          <h2>{product.title}</h2>
+          <p>€{product.price}</p>
         </CardLink>
 
         <button onClick={() => handleAddToCart(product)}>Bestel</button>
@@ -41,7 +41,7 @@ const Container = styled.div`
   width: 15rem;
   margin: 15px;
   margin-top: 0;
-  padding: 15px;
+  padding: 10px;
   color: white;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.1);
@@ -96,5 +96,9 @@ const CardLink = styled(Link)`
       width: 100%;
       height: auto;
     }
+  }
+
+  h2 {
+    font-size: 1.2rem;
   }
 `;
