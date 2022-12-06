@@ -76,7 +76,12 @@ export default function Header() {
         <S.RightSection>
           <div>
             <ShowOnLogout>
-              <NavLink to="/account/login" style={({ isActive }) => (isActive ? activeStyle : undefined)}>log in</NavLink>
+              <NavLink
+                to="/account/login"
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+              >
+                log in
+              </NavLink>
             </ShowOnLogout>
           </div>
           <S.Name>
@@ -97,7 +102,7 @@ export default function Header() {
             </ShowOnLogin>
           </div>
           <S.Wishlist>
-            <NavLink to="/wishlist" >
+            <NavLink to="/wishlist">
               <img src={hearticon} alt="" />
               {wishlistTotalQuantity > 0 && (
                 <S.Badge>{wishlistTotalQuantity}</S.Badge>
@@ -133,11 +138,11 @@ export default function Header() {
                   <hr />
                   <li className="nav-item">
                     <Link
-                      to="/cart"
+                      to="/account"
                       className="nav-links"
                       onClick={closeMobileMenu}
                     >
-                      Winkelwagen
+                      Account
                     </Link>
                   </li>
                   <li className="nav-item">
@@ -151,17 +156,18 @@ export default function Header() {
                   </li>
                   <li className="nav-item">
                     <Link
-                      to="/account"
+                      to="/cart"
                       className="nav-links"
                       onClick={closeMobileMenu}
                     >
-                      Account
+                      Winkelwagen
                     </Link>
                   </li>
+
                   <hr />
                   <li className="nav-item">
                     <Link
-                      to="/products"
+                      to="/products/All"
                       className="nav-links"
                       onClick={closeMobileMenu}
                     >
@@ -195,15 +201,7 @@ export default function Header() {
                       Party
                     </Link>
                   </li>
-                  <li className="nav-item">
-                    <Link
-                      to="/products/Abstract"
-                      className="nav-links"
-                      onClick={closeMobileMenu}
-                    >
-                      Abstract
-                    </Link>
-                  </li>
+
                   <hr />
                 </ul>
               </div>
