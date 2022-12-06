@@ -22,7 +22,7 @@ export default function Home() {
               schurken uit het universum!
             </p>
             <p>
-              <Link to="/product-detail/11">Weer op voorraad!</Link>
+              <Link to="/product-detail/11">Reserveer nu</Link>
             </p>
           </HeroTitle>
           <HeroImg src={marvel} alt="Marvel superheroes" />
@@ -162,15 +162,12 @@ const HeroTitle = styled.div`
     left: 60%;
     font-size: 6vw;
     font-weight: 900;
+    font-style: italic;
     text-shadow: 1px 1px 1px #393939;
 
     a {
       color: white;
       text-decoration: underline;
-
-      :hover {
-        color: gold;
-      }
     }
   }
 
