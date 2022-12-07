@@ -11,8 +11,10 @@ import carticon from '../../assets/cart.png';
 import hearticon from '../../assets/heart.png';
 import * as S from './Header.styled';
 
-import { FaBars, FaTimes, FaReact } from 'react-icons/fa';
+import { FaBars, FaTimes} from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 export default function Header() {
   const { cartTotalQuantity } = useSelector((state) => state.cart);

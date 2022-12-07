@@ -34,6 +34,7 @@ export const Container = styled.header`
 
   a {
     text-decoration: none;
+    color: black;
   }
 
   img {
@@ -50,6 +51,7 @@ export const LeftSection = styled.div`
 export const Logo = styled(Link)`
   font-family: Brush Script MT;
   font-size: 2rem;
+
 
   :hover {
     color: black;

@@ -160,7 +160,7 @@ const HeroTitle = styled.div`
     position: absolute;
     top: 20%;
     left: 60%;
-    font-size: 6vw;
+    font-size: 5vw;
     font-weight: 900;
     font-style: italic;
     text-shadow: 1px 1px 1px #393939;

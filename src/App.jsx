@@ -3,7 +3,6 @@ import Header from './components/Header/Header';
 
 // styles
 import GlobalStyle from './styles/GlobalStyle';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { ToastContainer, Flip } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
