@@ -81,7 +81,7 @@ export default function ProductDetail() {
                   <iframe
                     src={
                       data[product].youtube +
-                      '?autoplay=1&modestbranding=1'
+                      '?autoplay=1&modestbranding=1&mute=1'
                     }
                     title="YouTube video player"
                     frameBorder="0"
