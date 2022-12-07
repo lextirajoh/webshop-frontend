@@ -104,9 +104,9 @@ const Main = styled.main`
   border-radius: 10px;
 
   @media (min-width: 40rem) {
-    width: 80%;
-  margin: 90px auto 60px auto;
-
+    width: 60%;
+    max-width: 50rem;
+    margin: 90px auto 60px auto;
   }
 `;
 

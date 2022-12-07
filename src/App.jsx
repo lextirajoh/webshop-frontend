@@ -1,7 +1,5 @@
 import { Outlet } from 'react-router-dom';
 import Header from './components/Header/Header';
-
-// styles
 import GlobalStyle from './styles/GlobalStyle';
 import { ToastContainer, Flip } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -18,9 +16,6 @@ export default function App() {
         newestOnTop={false}
         closeOnClick
         rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
         theme="dark"
       />
       <Header />

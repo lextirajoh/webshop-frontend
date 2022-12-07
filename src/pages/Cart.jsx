@@ -139,7 +139,8 @@ const Container = styled.section`
   background-color: rgba(0, 0, 0, 0.1);
 
   @media (min-width: 50rem) {
-    width: 80%;
+    width: 60%;
+    max-width: 60rem;
   }
 
   h1 {
@@ -182,7 +183,6 @@ const ProductTitle = styled.h3`
 
 const Price = styled.h3``;
 const Quantity = styled.h3`
-
   @media (max-width: 50rem) {
     display: none;
   }
@@ -297,8 +297,8 @@ const CartSummary = styled.div`
 `;
 
 const ClearCartButton = styled.button`
-    width: 6rem;
-    height: 4rem;
+  width: 6rem;
+  height: 4rem;
   border-radius: 5px;
   font-weight: 400;
   letter-spacing: 1.15px;
@@ -311,7 +311,6 @@ const ClearCartButton = styled.button`
   @media (min-width: 50rem) {
     width: 10rem;
     height: 2.5rem;
-
   }
 
   :hover {
@@ -328,7 +327,6 @@ const CartCheckout = styled.div`
   @media (min-width: 50rem) {
     width: 17rem;
   }
-
 
   p {
     font-size: 14px;
