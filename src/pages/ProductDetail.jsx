@@ -81,7 +81,7 @@ export default function ProductDetail() {
                   <iframe
                     src={
                       data[product].youtube +
-                      '?autoplay=1&controls=0&modestbranding=1'
+                      '?autoplay=1&modestbranding=1'
                     }
                     title="YouTube video player"
                     frameBorder="0"
@@ -185,7 +185,7 @@ const Container = styled.div`
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0);
 `;
 const Main = styled.main`
   display: flex;
@@ -201,7 +201,7 @@ const Main = styled.main`
     width: 100%;
   }
 
-  @media (max-width: 62rem) {
+  @media (max-width: 50rem) {
     display: none;
   }
 `;
@@ -219,12 +219,12 @@ const BlackWrap = styled.div`
 const Path = styled.nav`
   grid-column: 1 / 3;
   grid-row: 1 / 2;
-  color: #d3d3d3;
+  color: white;
   font-size: 0.9rem;
   font-weight: bold;
 
   a {
-    color: #d3d3d3;
+    color: white;
 
     :hover {
       color: white;
@@ -261,7 +261,7 @@ const Desc = styled.div`
 `;
 
 const WishlistButton = styled.button`
-  width: 100%;
+  width: 9rem;
   height: 40px;
   border-radius: 5px;
   font-weight: 400;
@@ -273,13 +273,18 @@ const WishlistButton = styled.button`
   background-color: white;
   cursor: pointer;
 
+  @media (min-width: 50rem) {
+    width: 100%;
+
+  }
+
   :hover {
   background-color: #e5e5e5;
   }
 `;
 
 const BuyButton = styled.button`
-  width: 100%;
+  width: 9rem;
   height: 40px;
   border-radius: 5px;
   font-weight: 400;
@@ -290,6 +295,11 @@ const BuyButton = styled.button`
   color: black;
   background-color: gold;
   cursor: pointer;
+
+  @media (min-width: 50rem) {
+    width: 100%;
+
+  }
 
   :hover {
     background-color: #fbe643;
@@ -311,7 +321,7 @@ const MainMob = styled.main`
     width: 100%;
   }
 
-  @media (min-width: 62rem) {
+  @media (min-width: 50rem) {
     display: none;
   }
 `;
