@@ -15,7 +15,7 @@ export default function Card({ product }) {
 
   function handleAddToCart(product) {
     dispatch(addToCart(product));
-    // navigate('/cart');
+    navigate('/cart');
   }
 
   return (

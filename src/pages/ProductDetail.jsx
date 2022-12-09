@@ -21,7 +21,7 @@ export default function ProductDetail() {
 
   function handleAddToCart(product) {
     dispatch(addToCart(product));
-    // navigate('/cart');
+    navigate('/cart');
   }
 
   function handleAddToWishlist(product) {
