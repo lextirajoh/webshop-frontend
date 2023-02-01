@@ -128,7 +128,6 @@ const Heading = styled.div`
 
   @media (min-width: 50rem) {
     margin: 2rem auto;
-
   }
 `;
 
